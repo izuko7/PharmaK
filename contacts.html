@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Kevoreh Pharma - Contact Us</title>
+
+    <!-- ========================
+         DÉPENDANCES EXTERNES
+    ======================== -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Police principale : Manrope -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icônes Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ========================
+         CONFIGURATION TAILWIND
+         (mode sombre supprimé)
+    ======================== -->
+    <script id="tailwind-config">
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0c66c2",
+              "medical-blue": "#137fec",
+              "slate-heading": "#1e293b",
+              "slate-body": "#475569",
+              "background-light": "#f8fafc",
+            },
+            fontFamily: {
+              display: ["Manrope"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "1rem",
+              xl: "1.5rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- ========================
+         STYLES PERSONNALISÉS
+    ======================== -->
+    <style type="text/tailwindcss">
+      /* Effet verre givré — cartes et formulaire */
+      .glass {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        box-shadow:
+          0 4px 6px -1px rgba(0, 0, 0, 0.05),
+          0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      }
+
+      /* Effet verre givré pour la navbar */
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      }
+
+      /* Ombre lumineuse sur le bouton d'envoi */
+      .glow-button {
+        box-shadow: 0 4px 14px 0 rgba(19, 127, 236, 0.3);
+      }
+
+      /* Fond dégradé médical subtil */
+      .medical-gradient {
+        background: radial-gradient(
+          circle at top right,
+          #f1f5f9 0%,
+          #f8fafc 100%
+        );
+      }
+
+      /* ===========================
+         MENU HAMBURGER MOBILE
+      =========================== */
+
+      /* Bouton hamburger visible sur mobile */
+      #hamburger-btn {
+        display: flex;
+      }
+
+      /* Menu mobile masqué par défaut */
+      #mobile-menu {
+        display: none;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem 1.5rem 1.25rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      /* Classe ajoutée par JS pour ouvrir le menu */
+      #mobile-menu.open {
+        display: flex;
+      }
+
+      /* Sur desktop (md+), masquer le hamburger et le menu mobile */
+      @media (min-width: 768px) {
+        #hamburger-btn {
+          display: none;
+        }
+        #mobile-menu {
+          display: none !important;
+        }
+      }
+
+      /* Activation du sous-menu au survol */
+      .nav-item-dropdown:hover .dropdown-menu {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <!-- ========================
+       BODY — fond clair uniquement
+  ======================== -->
+  <body class="bg-background-light medical-gradient font-display text-slate-body min-h-screen">
+
+    <!-- ============================================================
+         BARRE DE NAVIGATION FIXE
+         - Logo + liens desktop + hamburger mobile
+    ============================================================ -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-7xl z-50 glass-nav rounded-2xl shadow-lg border border-white/40">
+      <div class="px-6 h-16 flex items-center justify-between">
+
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+          <div class="w-9 h-9 bg-primary rounded-lg flex items-center justify-center shadow-md shadow-primary/20">
+            <span class="material-symbols-outlined text-white text-xl">medical_services</span>
+          </div>
+          <span class="font-bold text-lg tracking-tight text-slate-900">
+            KEVOREH <span class="text-primary">PHARMA</span>
+          </span>
+        </div>
+
+        <!-- Liens desktop — masqués sur mobile -->
+        <div class="hidden md:flex items-center gap-8 font-semibold text-sm">
+          <a class="hover:text-primary transition-colors text-slate-600" href="index.html">Home</a>
+          <a class="hover:text-primary transition-colors text-slate-600" href="About.html">About Us</a>
+
+          <!-- Lien avec sous-menu déroulant -->
+          <div class="nav-item-dropdown relative py-4">
+            <a class="hover:text-primary transition-colors flex items-center gap-1 text-slate-600" href="#">
+              Commitment
+              <span class="material-symbols-outlined text-sm">expand_more</span>
+            </a>
+            <!-- Sous-menu -->
+            <div class="dropdown-menu hidden absolute top-full left-0 w-56 glass-nav rounded-xl shadow-xl p-2 mt-1 border border-white/50">
+              <a class="block px-4 py-3 hover:bg-white/50 rounded-lg transition-all text-slate-700 hover:text-primary" href="#">Quality Assurance</a>
+              <a class="block px-4 py-3 hover:bg-white/50 rounded-lg transition-all text-slate-700" href="#">Regulatory Compliance</a>
+              <a class="block px-4 py-3 hover:bg-white/50 rounded-lg transition-all text-slate-700" href="#">Ethics &amp; Values</a>
+            </div>
+          </div>
+
+          <a class="hover:text-primary transition-colors text-slate-600" href="#">Services</a>
+          <!-- Lien actif : page Contact -->
+          <a class="text-primary border-b-2 border-primary" href="contacts.html">Contact</a>
+        </div>
+
+        <!-- Boutons à droite : langue + hamburger -->
+        <div class="flex items-center gap-3">
+          <!-- Sélecteur de langue -->
+          <button class="flex items-center justify-center rounded-lg h-10 px-4 border border-gray-200 bg-white/50 text-[#0d121b] text-sm font-bold tracking-[0.015em] hover:bg-white transition-all backdrop-blur-sm">
+            <span class="material-symbols-outlined text-lg mr-2">language</span>
+            <span>FR / EN</span>
+          </button>
+
+          <!-- Bouton hamburger — visible uniquement sur mobile -->
+          <button
+            id="hamburger-btn"
+            class="items-center justify-center p-2 rounded-lg hover:bg-white/50 transition-colors"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+            onclick="toggleMobileMenu()"
+          >
+            <span class="material-symbols-outlined text-slate-700">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           MENU MOBILE — s'affiche quand le hamburger est cliqué
+      ============================================================ -->
+      <div id="mobile-menu" role="navigation" aria-label="Menu mobile">
+        <a class="py-3 px-2 text-sm font-semibold text-slate-600 hover:text-primary transition-colors border-b border-gray-100" href="index.html">Home</a>
+        <a class="py-3 px-2 text-sm font-semibold text-slate-600 hover:text-primary transition-colors border-b border-gray-100" href="About.html">About Us</a>
+        <a class="py-3 px-2 text-sm font-semibold text-slate-600 hover:text-primary transition-colors border-b border-gray-100" href="#">Commitment</a>
+        <a class="py-3 px-2 text-sm font-semibold text-slate-600 hover:text-primary transition-colors border-b border-gray-100" href="#">Services</a>
+        <a class="py-3 px-2 text-sm font-semibold text-primary border-b border-gray-100">Contact</a>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         CONTENU PRINCIPAL
+    ============================================================ -->
+    <main class="flex-1 pt-28 sm:pt-32">
+
+      <!-- ============================================================
+           SECTION HERO — En-tête de la page Contact
+      ============================================================ -->
+      <div class="relative px-4 py-12 sm:py-20 md:py-24">
+        <!-- Image de fond décorativeavec opacité réduite -->
+        <div
+          class="absolute inset-0 opacity-5 pointer-events-none"
+          style="
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAlv6RQ6pSmVLaFFnfwEjM3VJa8iaoZdq2O60aQogQK7X8g1epbALsiBMlbt4ERCRd_r8ROuGl4j4tIAqnXEr4JNjcp5AJ949HqB90pAxWWZEfhM_qFFSJHITHhTmYvjECWhJF-7uZdV8lUg7Fee1L1zNXAk3_3iwF1QR6_KkX5hu-mek4Wj_rGYLk11zAIVIowX4_ZcpiMREqZLzxB7M2-NOqrjNFZgVVQqwOBFQfagmzl2gIurHD51PVvFLhjj-bb58tNpYGEvXM');
+            background-size: cover;
+            background-position: center;
+          "
+        ></div>
+
+        <!-- Titre et sous-titre centrés -->
+        <div class="relative z-10 mx-auto max-w-[960px] text-center">
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 sm:mb-6 text-slate-heading">
+            Contact Us
+          </h1>
+          <p class="text-base sm:text-lg text-slate-body max-w-2xl mx-auto leading-relaxed">
+            Have questions about our pharmaceutical solutions? Our team in
+            Abidjan is here to support healthcare professionals and partners
+            across the globe.
+          </p>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           SECTION FORMULAIRE DE CONTACT
+           - Champs Nom, Email, Sujet, Message
+           - Bouton d'envoi avec effet glow
+      ============================================================ -->
+      <section class="px-4 pb-16 sm:pb-20">
+        <div class="mx-auto max-w-[800px] glass rounded-xl p-6 sm:p-8 md:p-12">
+          <h2 class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-slate-heading">
+            Send us a Message
+          </h2>
+
+          <form class="space-y-5 sm:space-y-6" onsubmit="return false;">
+
+            <!-- Ligne Nom + Email (2 colonnes sur md+, 1 colonne sur mobile) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+
+              <!-- Champ Nom -->
+              <label class="flex flex-col gap-2">
+                <span class="text-sm font-bold text-slate-body">Name</span>
+                <input
+                  class="rounded-lg border border-slate-200 bg-white/50 h-12 sm:h-14 px-4 text-slate-heading focus:border-medical-blue focus:ring-1 focus:ring-medical-blue outline-none transition-all placeholder:text-slate-400 text-sm sm:text-base"
+                  placeholder="John Doe"
+                  type="text"
+                />
+              </label>
+
+              <!-- Champ Email -->
+              <label class="flex flex-col gap-2">
+                <span class="text-sm font-bold text-slate-body">Email</span>
+                <input
+                  class="rounded-lg border border-slate-200 bg-white/50 h-12 sm:h-14 px-4 text-slate-heading focus:border-medical-blue focus:ring-1 focus:ring-medical-blue outline-none transition-all placeholder:text-slate-400 text-sm sm:text-base"
+                  placeholder="john@example.com"
+                  type="email"
+                />
+              </label>
+            </div>
+
+            <!-- Champ Sujet -->
+            <label class="flex flex-col gap-2">
+              <span class="text-sm font-bold text-slate-body">Subject</span>
+              <input
+                class="rounded-lg border border-slate-200 bg-white/50 h-12 sm:h-14 px-4 text-slate-heading focus:border-medical-blue focus:ring-1 focus:ring-medical-blue outline-none transition-all placeholder:text-slate-400 text-sm sm:text-base"
+                placeholder="How can we help you?"
+                type="text"
+              />
+            </label>
+
+            <!-- Champ Message -->
+            <label class="flex flex-col gap-2">
+              <span class="text-sm font-bold text-slate-body">Message</span>
+              <textarea
+                class="rounded-lg border border-slate-200 bg-white/50 p-4 text-slate-heading focus:border-medical-blue focus:ring-1 focus:ring-medical-blue outline-none transition-all placeholder:text-slate-400 resize-none text-sm sm:text-base"
+                placeholder="Tell us more about your inquiry..."
+                rows="5"
+              ></textarea>
+            </label>
+
+            <!-- Bouton d'envoi -->
+            <button
+              type="submit"
+              class="w-full md:w-auto min-w-[200px] glow-button bg-medical-blue hover:bg-blue-700 active:scale-95 text-white font-bold h-12 sm:h-14 px-8 rounded-lg transition-all text-sm sm:text-base"
+            >
+              Send Message
+            </button>
+
+          </form>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECTION INFORMATIONS DE CONTACT
+           - 3 cartes : Adresse, Téléphone, Email
+           - Grille 1 col mobile → 3 col desktop
+      ============================================================ -->
+      <section class="px-4 pb-16 sm:pb-20">
+        <div class="mx-auto max-w-[1000px] grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+
+          <!-- Carte Adresse -->
+          <div class="glass p-6 sm:p-8 rounded-xl flex flex-col items-center text-center group hover:border-medical-blue/30 transition-all">
+            <div class="size-12 sm:size-14 rounded-full bg-blue-50 text-medical-blue flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
+              <span class="material-symbols-outlined text-xl sm:text-2xl">location_on</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold mb-2 text-slate-heading">Location</h3>
+            <p class="text-slate-body text-sm leading-relaxed font-medium">
+              Rue des Jardins, II Plateaux<br />
+              Abidjan, Côte d'Ivoire
+            </p>
+          </div>
+
+          <!-- Carte Téléphone -->
+          <div class="glass p-6 sm:p-8 rounded-xl flex flex-col items-center text-center group hover:border-medical-blue/30 transition-all">
+            <div class="size-12 sm:size-14 rounded-full bg-blue-50 text-medical-blue flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
+              <span class="material-symbols-outlined text-xl sm:text-2xl">call</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold mb-2 text-slate-heading">Phone</h3>
+            <p class="text-slate-body text-sm leading-relaxed font-medium">
+              +225 27 22 40 00 00<br />
+              Mon - Fri, 8am - 6pm
+            </p>
+          </div>
+
+          <!-- Carte Email -->
+          <div class="glass p-6 sm:p-8 rounded-xl flex flex-col items-center text-center group hover:border-medical-blue/30 transition-all">
+            <div class="size-12 sm:size-14 rounded-full bg-blue-50 text-medical-blue flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
+              <span class="material-symbols-outlined text-xl sm:text-2xl">mail</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold mb-2 text-slate-heading">Email</h3>
+            <p class="text-slate-body text-sm leading-relaxed font-medium">
+              contact@kevoreh.com<br />
+              info@kevoreh.com
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECTION CARTE / MAP
+           - Image de fond simulant une carte géographique
+           - Point animé indiquant le siège social
+      ============================================================ -->
+      <section class="px-4 pb-16 sm:pb-20">
+        <div class="mx-auto max-w-[1280px] h-[350px] sm:h-[450px] md:h-[500px] rounded-xl overflow-hidden glass relative border-slate-200">
+
+          <!-- Image de fond représentant la carte -->
+          <div
+            class="absolute inset-0 bg-[#e5e7eb]"
+            style="
+              background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAm0bW3JSMZHcoZeCKL1O_mWO1NGXoTI1FQuBqrBW3OwnRS_qlzVTxe7NLpT8XKAh39tFjJ-lB4FsY4HX4D_o_dbho1C1H8OF1v1E_eYG0c5T5jScIOgPZNpLWci-rhmEKsW8ZFpFxIyDJvvg4mMit1mdkVVuzGvpfKFmolQX9C3oBBxBrq7dMQPRpx57hpSpNKP3E7ZiDpZYcsDWl4SgTrRxVpCONxn7EeMmIUyPfS_Qy50Ebej8ZxQSgDM8TUQZXaeXvqJ_Txljw');
+              background-size: cover;
+              background-position: center;
+            "
+          ></div>
+
+          <!-- Marqueur de localisation centré -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+            <!-- Étiquette du siège -->
+            <div class="bg-white/90 backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg mb-2 flex items-center gap-2 border border-medical-blue/30 shadow-lg">
+              <span class="material-symbols-outlined text-medical-blue text-sm">medical_information</span>
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-heading">Kevoreh Headquarters</span>
+            </div>
+
+            <!-- Point animé (ping) -->
+            <div class="relative">
+              <div class="absolute inset-0 animate-ping bg-medical-blue rounded-full opacity-40"></div>
+              <div class="size-5 sm:size-6 bg-medical-blue rounded-full border-4 border-white relative z-10 shadow-md"></div>
+            </div>
+          </div>
+
+          <!-- Boutons de zoom (décoratifs) -->
+          <div class="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 flex flex-col gap-2">
+            <button class="size-9 sm:size-10 glass rounded-lg flex items-center justify-center hover:bg-white text-slate-heading transition-colors">
+              <span class="material-symbols-outlined">add</span>
+            </button>
+            <button class="size-9 sm:size-10 glass rounded-lg flex items-center justify-center hover:bg-white text-slate-heading transition-colors">
+              <span class="material-symbols-outlined">remove</span>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ============================================================
+         FOOTER
+         - Logo + copyright + icônes réseaux
+         - Disposition en colonne sur mobile, ligne sur desktop
+    ============================================================ -->
+    <footer class="border-t border-slate-200 bg-white/50 py-10 sm:py-12 px-6">
+      <div class="mx-auto max-w-[1280px] flex flex-col md:flex-row justify-between items-center gap-6 sm:gap-8">
+
+        <!-- Logo footer -->
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-medical-blue">medical_services</span>
+          <span class="font-bold text-slate-heading">KEVOREH PHARMA</span>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-slate-body text-xs sm:text-sm font-medium text-center">
+          © 2024 Kevoreh Pharma. All rights reserved.
+        </div>
+
+        <!-- Icônes réseaux sociaux -->
+        <div class="flex gap-5 sm:gap-6">
+          <a class="text-slate-body hover:text-medical-blue transition-colors" href="#">
+            <span class="material-symbols-outlined">public</span>
+          </a>
+          <a class="text-slate-body hover:text-medical-blue transition-colors" href="#">
+            <span class="material-symbols-outlined">share</span>
+          </a>
+          <a class="text-slate-body hover:text-medical-blue transition-colors" href="#">
+            <span class="material-symbols-outlined">hub</span>
+          </a>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- ============================================================
+         JAVASCRIPT
+         - Gestion du menu hamburger mobile
+    ============================================================ -->
+    <script>
+      /**
+       * Ouvre ou ferme le menu mobile en basculant la classe "open".
+       * Met à jour aria-expanded pour l'accessibilité.
+       */
+      function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        const btn = document.getElementById('hamburger-btn');
+        const isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      }
+    </script>
+
+  </body>
+</html>
