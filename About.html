@@ -1,20 +1,35 @@
 <!doctype html>
-<html class="scroll-smooth" lang="en">
+<html class="scroll-smooth" lang="fr">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>About Us | KEVOREH PHARMA</title>
+
+    <!-- ========================
+         POLICES GOOGLE FONTS
+    ======================== -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Icônes Material Symbols -->
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
       rel="stylesheet"
     />
+
+    <!-- ========================
+         TAILWIND CSS CDN
+    ======================== -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+
+    <!-- ========================
+         STYLES PERSONNALISÉS
+         (mode sombre supprimé)
+    ======================== -->
     <style type="text/tailwindcss">
       @layer base {
         :root {
@@ -26,23 +41,31 @@
           --glass-border: rgba(255, 255, 255, 0.4);
         }
       }
+
+      /* Effet verre givré — navbar et cartes */
       .glass-nav {
-        background: rgba(255, 255, 255, 0.7);
+        background: rgba(255, 255, 255, 0.75);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
         border: 1px solid rgba(255, 255, 255, 0.3);
       }
+
+      /* Cartes avec effet verre léger */
       .glass-card {
-        background: rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.6);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.5);
       }
+
+      /* Texte avec dégradé bleu */
       .text-gradient {
         background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
+
+      /* Fond dégradé médical pour la section hero */
       .bg-medical-gradient {
         background: radial-gradient(
           circle at top right,
@@ -51,20 +74,58 @@
           #f8fafc 100%
         );
       }
+
+      /* Activation du sous-menu au survol */
       .nav-item-dropdown:hover .dropdown-menu {
         display: block;
       }
+
+      /* ===========================
+         MENU HAMBURGER MOBILE
+      =========================== */
+
+      /* Bouton hamburger visible sur mobile */
+      #hamburger-btn {
+        display: flex;
+      }
+
+      /* Menu mobile masqué par défaut */
+      #mobile-menu {
+        display: none;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem 1.5rem 1.25rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      /* Classe ajoutée par JS pour ouvrir le menu */
+      #mobile-menu.open {
+        display: flex;
+      }
+
+      /* Sur desktop, on masque le hamburger et le menu mobile */
+      @media (min-width: 768px) {
+        #hamburger-btn {
+          display: none;
+        }
+        #mobile-menu {
+          display: none !important;
+        }
+      }
     </style>
+
+    <!-- ========================
+         CONFIGURATION TAILWIND
+         (darkMode supprimé)
+    ======================== -->
     <script>
       tailwind.config = {
-        darkMode: "class",
         theme: {
           extend: {
             colors: {
               primary: "#2563eb",
               "medical-blue": "#0ea5e9",
               "background-light": "#F8FAFC",
-              "background-dark": "#0F172A",
             },
             fontFamily: {
               display: ["Plus Jakarta Sans", "sans-serif"],
@@ -77,754 +138,603 @@
       };
     </script>
   </head>
-  <body
-    class="font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 antialiased transition-colors duration-300"
-  >
-    <nav
-      class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-7xl z-50 glass-nav rounded-2xl shadow-lg border border-white/40"
-    >
+
+  <!-- ========================
+       BODY — fond clair uniquement
+  ======================== -->
+  <body class="font-display bg-background-light text-slate-800 antialiased">
+
+    <!-- ============================================================
+         BARRE DE NAVIGATION FIXE
+         - Logo + liens desktop + hamburger mobile
+    ============================================================ -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-7xl z-50 glass-nav rounded-2xl shadow-lg border border-white/40">
       <div class="px-6 h-16 flex items-center justify-between">
+
+        <!-- Logo -->
         <div class="flex items-center gap-2">
-          <div
-            class="w-9 h-9 bg-primary rounded-lg flex items-center justify-center shadow-md shadow-primary/20"
-          >
-            <span class="material-symbols-outlined text-white text-xl"
-              >medical_services</span
-            >
+          <div class="w-9 h-9 bg-primary rounded-lg flex items-center justify-center shadow-md shadow-primary/20">
+            <span class="material-symbols-outlined text-white text-xl">medical_services</span>
           </div>
-          <span class="font-bold text-lg tracking-tight text-slate-900"
-            >KEVOREH <span class="text-primary">PHARMA</span></span
-          >
+          <span class="font-bold text-lg tracking-tight text-slate-900">
+            KEVOREH <span class="text-primary">PHARMA</span>
+          </span>
         </div>
+
+        <!-- Liens desktop — masqués sur mobile -->
         <div class="hidden md:flex items-center gap-8 font-semibold text-sm">
-          <a
-            class="hover:text-primary transition-colors text-slate-600"
-            href="index.html"
-            >Home</a
-          >
-          <a class="text-primary border-b-2 border-primary" href="#"
-            >About Us</a
-          >
+          <a class="hover:text-primary transition-colors text-slate-600" href="index.html">Home</a>
+          <a class="text-primary border-b-2 border-primary" href="#">About Us</a>
+
+          <!-- Lien avec sous-menu déroulant -->
           <div class="nav-item-dropdown relative py-4">
-            <a
-              class="hover:text-primary transition-colors flex items-center gap-1 text-slate-600"
-              href="#"
-            >
+            <a class="hover:text-primary transition-colors flex items-center gap-1 text-slate-600" href="#">
               Commitment
               <span class="material-symbols-outlined text-sm">expand_more</span>
             </a>
-            <div
-              class="dropdown-menu hidden absolute top-full left-0 w-56 glass-nav rounded-xl shadow-xl p-2 mt-1 border border-white/50"
-            >
-              <a
-                class="block px-4 py-3 hover:bg-white/50 rounded-lg transition-all text-slate-700 hover:text-primary"
-                href="#"
-                >Quality Assurance</a
-              >
-              <a
-                class="block px-4 py-3 hover:bg-white/50 rounded-lg transition-all text-slate-700"
-                href="#"
-                >Regulatory Compliance</a
-              >
-              <a
-                class="block px-4 py-3 hover:bg-white/50 rounded-lg transition-all text-slate-700"
-                href="#"
-                >Ethics &amp; Values</a
-              >
+            <!-- Sous-menu -->
+            <div class="dropdown-menu hidden absolute top-full left-0 w-56 glass-nav rounded-xl shadow-xl p-2 mt-1 border border-white/50">
+              <a class="block px-4 py-3 hover:bg-white/50 rounded-lg transition-all text-slate-700 hover:text-primary" href="#">Quality Assurance</a>
+              <a class="block px-4 py-3 hover:bg-white/50 rounded-lg transition-all text-slate-700" href="#">Regulatory Compliance</a>
+              <a class="block px-4 py-3 hover:bg-white/50 rounded-lg transition-all text-slate-700" href="#">Ethics &amp; Values</a>
             </div>
           </div>
-          <a
-            class="hover:text-primary transition-colors text-slate-600"
-            href="#"
-            >Services</a
-          >
-          <a
-            class="hover:text-primary transition-colors text-slate-600"
-            href="#"
-            >Contact</a
-          >
+
+          <a class="hover:text-primary transition-colors text-slate-600" href="#">Services</a>
+          <a class="hover:text-primary transition-colors text-slate-600" href="#">Contact</a>
         </div>
+
+        <!-- Boutons à droite : langue + hamburger -->
         <div class="flex items-center gap-3">
-          <button
-            class="p-2 rounded-full hover:bg-white/50 transition-colors"
-            onclick="document.documentElement.classList.toggle('dark')"
-          >
-            <span
-              class="material-symbols-outlined text-xl block dark:hidden text-slate-600"
-              >dark_mode</span
-            >
-            <span
-              class="material-symbols-outlined text-xl hidden dark:block text-slate-200"
-              >light_mode</span
-            >
+          <!-- Sélecteur de langue -->
+          <button class="flex items-center justify-center rounded-lg h-10 px-4 border border-gray-200 bg-white/50 text-[#0d121b] text-sm font-bold tracking-[0.015em] hover:bg-white transition-all backdrop-blur-sm">
+            <span class="material-symbols-outlined text-lg mr-2">language</span>
+            <span>FR / EN</span>
           </button>
+
+          <!-- Bouton hamburger — visible uniquement sur mobile -->
           <button
-              class="flex items-center justify-center rounded-lg h-10 px-4 border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-background-dark/50 text-[#0d121b] dark:text-white text-sm font-bold tracking-[0.015em] hover:bg-white dark:hover:bg-gray-800 transition-all backdrop-blur-sm"
-            >
-              <span class="material-symbols-outlined text-lg mr-2"
-                >language</span
-              >
-              <span>FR / EN</span>
-            </button>
+            id="hamburger-btn"
+            class="items-center justify-center p-2 rounded-lg hover:bg-white/50 transition-colors"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+            onclick="toggleMobileMenu()"
+          >
+            <span class="material-symbols-outlined text-slate-700">menu</span>
+          </button>
         </div>
       </div>
+
+      <!-- ============================================================
+           MENU MOBILE — s'affiche quand le hamburger est cliqué
+      ============================================================ -->
+      <div id="mobile-menu" role="navigation" aria-label="Menu mobile">
+        <a class="py-3 px-2 text-sm font-semibold text-slate-600 hover:text-primary transition-colors border-b border-gray-100" href="index.html">Home</a>
+        <a class="py-3 px-2 text-sm font-semibold text-primary border-b border-gray-100">About Us</a>
+        <a class="py-3 px-2 text-sm font-semibold text-slate-600 hover:text-primary transition-colors border-b border-gray-100" href="#">Commitment</a>
+        <a class="py-3 px-2 text-sm font-semibold text-slate-600 hover:text-primary transition-colors border-b border-gray-100" href="#">Services</a>
+        <a class="py-3 px-2 text-sm font-semibold text-slate-600 hover:text-primary transition-colors" href="#">Contact</a>
+      </div>
     </nav>
-    <section
-      class="pt-48 pb-24 px-6 relative overflow-hidden bg-medical-gradient dark:bg-none dark:bg-slate-950"
-    >
-      <div
-        class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-100/50 dark:bg-blue-900/10 blur-[120px] -z-10 rounded-full"
-      ></div>
+
+    <!-- ============================================================
+         SECTION HERO — En-tête de la page About Us
+         - Fond dégradé médical
+         - Titre avec texte en dégradé bleu
+    ============================================================ -->
+    <section class="pt-40 sm:pt-48 pb-16 sm:pb-24 px-6 relative overflow-hidden bg-medical-gradient">
+      <!-- Halo lumineux décoratif -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[800px] h-[300px] sm:h-[400px] bg-blue-100/50 blur-[120px] -z-10 rounded-full"></div>
+
       <div class="max-w-7xl mx-auto text-center">
-        <span
-          class="px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-xs uppercase tracking-widest mb-6 inline-block"
-          >Our Journey</span
-        >
-        <h1
-          class="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight text-slate-900 dark:text-white leading-tight"
-        >
+        <!-- Badge "Our Journey" -->
+        <span class="px-4 py-1.5 rounded-full bg-blue-100 text-blue-600 font-bold text-xs uppercase tracking-widest mb-6 inline-block">
+          Our Journey
+        </span>
+
+        <!-- Titre principal -->
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 sm:mb-8 tracking-tight text-slate-900 leading-tight">
           About <span class="text-gradient">KEVOREH PHARMA</span>
         </h1>
-        <p
-          class="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-400 leading-relaxed"
-        >
+
+        <!-- Sous-titre descriptif -->
+        <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 leading-relaxed">
           A team of experts dedicated to pharmaceutical excellence and quality
           healthcare services in Abidjan, Côte d'Ivoire.
         </p>
       </div>
     </section>
-    <section class="py-24 px-6 relative">
-      <div
-        class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
-      >
-        <div class="space-y-10">
+
+    <!-- ============================================================
+         SECTION INNOVATION & QUALITÉ
+         - Texte + cartes à gauche, image à droite
+         - Colonne unique sur mobile
+    ============================================================ -->
+    <section class="py-16 sm:py-24 px-6 relative">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+        <!-- Bloc texte et cartes -->
+        <div class="space-y-8 sm:space-y-10">
           <div class="space-y-4">
-            <h2
-              class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white"
-            >
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">
               Innovation &amp; Quality Control
             </h2>
-            <p
-              class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed"
-            >
+            <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
               KEVOREH PHARMA stands as a leading representation and promotion
               agency for pharmaceutical products. Founded by seasoned industry
               professionals, we bring over 5 years of specialized expertise to
               the Ivory Coast healthcare market.
             </p>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div
-              class="p-6 rounded-2xl glass-card shadow-sm border border-white/40 flex gap-4 hover:shadow-md transition-all"
-            >
-              <div
-                class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center flex-shrink-0"
-              >
-                <span class="material-symbols-outlined text-primary"
-                  >biotech</span
-                >
+
+          <!-- Cartes caractéristiques : 2 colonnes sur sm+ -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+
+            <!-- Carte 1 : Laboratoire -->
+            <div class="p-5 sm:p-6 rounded-2xl glass-card shadow-sm border border-white/40 flex gap-4 hover:shadow-md transition-all">
+              <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-primary">biotech</span>
               </div>
               <div>
-                <h4 class="font-bold text-slate-900 dark:text-white mb-1">
-                  Registration Lab
-                </h4>
-                <p class="text-sm text-slate-500 dark:text-slate-400">
-                  Strict compliance checks for new laboratories.
-                </p>
+                <h4 class="font-bold text-slate-900 mb-1">Registration Lab</h4>
+                <p class="text-sm text-slate-500">Strict compliance checks for new laboratories.</p>
               </div>
             </div>
-            <div
-              class="p-6 rounded-2xl glass-card shadow-sm border border-white/40 flex gap-4 hover:shadow-md transition-all"
-            >
-              <div
-                class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center flex-shrink-0"
-              >
-                <span class="material-symbols-outlined text-primary"
-                  >verified_user</span
-                >
+
+            <!-- Carte 2 : Certifications -->
+            <div class="p-5 sm:p-6 rounded-2xl glass-card shadow-sm border border-white/40 flex gap-4 hover:shadow-md transition-all">
+              <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-primary">verified_user</span>
               </div>
               <div>
-                <h4 class="font-bold text-slate-900 dark:text-white mb-1">
-                  Certifications
-                </h4>
-                <p class="text-sm text-slate-500 dark:text-slate-400">
-                  Official registration and VISA renewals.
-                </p>
+                <h4 class="font-bold text-slate-900 mb-1">Certifications</h4>
+                <p class="text-sm text-slate-500">Official registration and VISA renewals.</p>
               </div>
             </div>
           </div>
-          <div class="pt-4">
-            <button
-              class="bg-primary hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-bold transition-all transform hover:scale-105 flex items-center gap-3 shadow-xl shadow-primary/20"
-            >
+
+          <!-- Bouton de téléchargement -->
+          <div class="pt-2">
+            <button class="bg-primary hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold transition-all transform hover:scale-105 flex items-center gap-3 shadow-xl shadow-primary/20">
               <span>DOWNLOAD STATUS</span>
               <span class="material-symbols-outlined">download</span>
             </button>
           </div>
         </div>
-        <div class="relative">
-          <div
-            class="rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white dark:border-slate-800"
-          >
+
+        <!-- Image illustrative avec badge -->
+        <div class="relative mt-10 lg:mt-0">
+          <div class="rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border-4 sm:border-8 border-white">
             <img
               alt="Stethoscope on medical surface"
-              class="w-full h-[550px] object-cover"
+              class="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-cover"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgefDSAonoqjE8Wt8rqlhk54yTJ1mL95W6Fe4ite1TEIZvGGlZ7PsUWThMnFc6c8N5JMbgr2zWDxB6JmPNz28rdoMKRZ8r73kMh9Bb_jYxml8ATKPOsiaZgj5ybgRpfsB_fhcjhSZjdOgB1zMhSdbm3UutEgeYTe2SKwku7S5jSmqcW2ZGtBG3s_umLpIYM6DEdXxWyQcBhkCKTTuK-LYMtSbIMzE1PlgwmN0rWs30JAIpYtY4gqLjwJ36-Qx9y2gUSeSCbKqO-gA"
             />
           </div>
-          <div
-            class="absolute -bottom-10 -left-10 glass-nav p-8 rounded-[2rem] shadow-2xl max-w-[280px] border border-white/60"
-          >
-            <div
-              class="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center mb-5 shadow-lg shadow-primary/30"
-            >
-              <span class="material-symbols-outlined text-white text-3xl"
-                >medical_information</span
-              >
+
+          <!-- Badge flottant "5+ Years" — masqué sur mobile pour éviter les débordements -->
+          <div class="absolute -bottom-8 -left-6 glass-nav p-6 rounded-[1.5rem] shadow-2xl max-w-[240px] border border-white/60 hidden sm:block">
+            <div class="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-primary/30">
+              <span class="material-symbols-outlined text-white text-2xl">medical_information</span>
             </div>
-            <h3 class="text-5xl font-extrabold text-slate-900 mb-2">
+            <h3 class="text-4xl font-extrabold text-slate-900 mb-1">
               5+
-              <span
-                class="text-lg font-bold text-primary block mt-1 uppercase tracking-tight"
-                >Years</span
-              >
+              <span class="text-base font-bold text-primary block mt-1 uppercase tracking-tight">Years</span>
             </h3>
-            <p
-              class="font-semibold uppercase text-xs tracking-widest text-slate-500"
-            >
+            <p class="font-semibold uppercase text-xs tracking-widest text-slate-500">
               Expertise in Local Health Sector
             </p>
           </div>
         </div>
+
       </div>
     </section>
-    <section class="py-24 px-6 bg-slate-50 dark:bg-slate-900/50">
+
+    <!-- ============================================================
+         SECTION MÉTRIQUES DE PERFORMANCE
+         - Barres de progression + carte "Ideal Partner"
+    ============================================================ -->
+    <section class="py-16 sm:py-24 px-6 bg-slate-50">
       <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+          <!-- Bloc barres de progression -->
           <div>
-            <span
-              class="text-primary font-bold text-sm tracking-widest uppercase mb-4 block"
-              >Performance Metrics</span
-            >
-            <h2
-              class="text-4xl font-extrabold text-slate-900 dark:text-white mb-6"
-            >
+            <span class="text-primary font-bold text-sm tracking-widest uppercase mb-4 block">
+              Performance Metrics
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 sm:mb-6">
               KEVOREH PHARMA Excellence
             </h2>
-            <p class="text-slate-600 dark:text-slate-400 mb-12 text-lg">
+            <p class="text-slate-600 mb-8 sm:mb-12 text-base sm:text-lg">
               Our commitment to quality is measurable. We pride ourselves on
               maintaining industry-leading standards across all operations.
             </p>
-            <div class="space-y-8">
-              <div class="group">
-                <div class="flex justify-between mb-3">
-                  <span class="font-bold text-slate-700 dark:text-slate-300"
-                    >Professionalism</span
-                  >
+
+            <!-- Barres de progression -->
+            <div class="space-y-6 sm:space-y-8">
+
+              <!-- Barre : Professionnalisme -->
+              <div>
+                <div class="flex justify-between mb-2 sm:mb-3">
+                  <span class="font-bold text-slate-700">Professionalism</span>
                   <span class="text-primary font-bold">95%</span>
                 </div>
-                <div
-                  class="w-full bg-slate-200 dark:bg-slate-800 h-3 rounded-full overflow-hidden p-0.5"
-                >
-                  <div
-                    class="bg-gradient-to-r from-blue-600 to-blue-400 h-full rounded-full"
-                    style="width: 95%"
-                  ></div>
+                <div class="w-full bg-slate-200 h-3 rounded-full overflow-hidden p-0.5">
+                  <div class="bg-gradient-to-r from-blue-600 to-blue-400 h-full rounded-full" style="width: 95%"></div>
                 </div>
               </div>
-              <div class="group">
-                <div class="flex justify-between mb-3">
-                  <span class="font-bold text-slate-700 dark:text-slate-300"
-                    >Reliability</span
-                  >
+
+              <!-- Barre : Fiabilité -->
+              <div>
+                <div class="flex justify-between mb-2 sm:mb-3">
+                  <span class="font-bold text-slate-700">Reliability</span>
                   <span class="text-primary font-bold">96%</span>
                 </div>
-                <div
-                  class="w-full bg-slate-200 dark:bg-slate-800 h-3 rounded-full overflow-hidden p-0.5"
-                >
-                  <div
-                    class="bg-gradient-to-r from-blue-600 to-blue-400 h-full rounded-full"
-                    style="width: 96%"
-                  ></div>
+                <div class="w-full bg-slate-200 h-3 rounded-full overflow-hidden p-0.5">
+                  <div class="bg-gradient-to-r from-blue-600 to-blue-400 h-full rounded-full" style="width: 96%"></div>
                 </div>
               </div>
-              <div class="group">
-                <div class="flex justify-between mb-3">
-                  <span class="font-bold text-slate-700 dark:text-slate-300"
-                    >Expertise</span
-                  >
+
+              <!-- Barre : Expertise -->
+              <div>
+                <div class="flex justify-between mb-2 sm:mb-3">
+                  <span class="font-bold text-slate-700">Expertise</span>
                   <span class="text-primary font-bold">97%</span>
                 </div>
-                <div
-                  class="w-full bg-slate-200 dark:bg-slate-800 h-3 rounded-full overflow-hidden p-0.5"
-                >
-                  <div
-                    class="bg-gradient-to-r from-blue-600 to-blue-400 h-full rounded-full"
-                    style="width: 97%"
-                  ></div>
+                <div class="w-full bg-slate-200 h-3 rounded-full overflow-hidden p-0.5">
+                  <div class="bg-gradient-to-r from-blue-600 to-blue-400 h-full rounded-full" style="width: 97%"></div>
                 </div>
               </div>
-              <div class="group">
-                <div class="flex justify-between mb-3">
-                  <span class="font-bold text-slate-700 dark:text-slate-300"
-                    >Accessibility</span
-                  >
+
+              <!-- Barre : Accessibilité -->
+              <div>
+                <div class="flex justify-between mb-2 sm:mb-3">
+                  <span class="font-bold text-slate-700">Accessibility</span>
                   <span class="text-primary font-bold">98%</span>
                 </div>
-                <div
-                  class="w-full bg-slate-200 dark:bg-slate-800 h-3 rounded-full overflow-hidden p-0.5"
-                >
-                  <div
-                    class="bg-gradient-to-r from-blue-600 to-blue-400 h-full rounded-full"
-                    style="width: 98%"
-                  ></div>
+                <div class="w-full bg-slate-200 h-3 rounded-full overflow-hidden p-0.5">
+                  <div class="bg-gradient-to-r from-blue-600 to-blue-400 h-full rounded-full" style="width: 98%"></div>
                 </div>
               </div>
+
             </div>
           </div>
-          <div
-            class="relative p-12 bg-white dark:bg-slate-800 rounded-[3rem] shadow-2xl overflow-hidden border border-white dark:border-slate-700"
-          >
-            <div
-              class="absolute -top-10 -right-10 w-40 h-40 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl"
-            ></div>
-            <div
-              class="absolute -bottom-10 -left-10 w-40 h-40 bg-cyan-100 dark:bg-cyan-900/20 rounded-full blur-3xl"
-            ></div>
+
+          <!-- Carte "Partenaire idéal" -->
+          <div class="relative p-8 sm:p-12 bg-white rounded-[2rem] sm:rounded-[3rem] shadow-2xl overflow-hidden border border-white">
+            <!-- Halos décoratifs -->
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-100 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-cyan-100 rounded-full blur-3xl"></div>
+
             <div class="relative z-10 text-center">
-              <div
-                class="w-20 h-20 bg-blue-100 dark:bg-blue-900/50 text-primary rounded-3xl flex items-center justify-center mx-auto mb-8"
-              >
-                <span class="material-symbols-outlined text-4xl"
-                  >handshake</span
-                >
+              <!-- Icône -->
+              <div class="w-16 h-16 sm:w-20 sm:h-20 bg-blue-100 text-primary rounded-3xl flex items-center justify-center mx-auto mb-6 sm:mb-8">
+                <span class="material-symbols-outlined text-3xl sm:text-4xl">handshake</span>
               </div>
-              <h3
-                class="text-3xl font-extrabold text-slate-900 dark:text-white mb-6"
-              >
+
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-4 sm:mb-6">
                 Your Ideal Partner
               </h3>
-              <p
-                class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8"
-              >
+              <p class="text-slate-600 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
                 We specialize in the import and wholesale marketing of
                 medical-surgical equipment and medical biology laboratory
                 reagents in Ivory Coast.
               </p>
-              <div class="flex flex-wrap justify-center gap-4">
-                <span
-                  class="px-4 py-2 rounded-xl bg-blue-50 dark:bg-blue-900/30 text-primary text-sm font-bold"
-                  >Medical Equipment</span
-                >
-                <span
-                  class="px-4 py-2 rounded-xl bg-blue-50 dark:bg-blue-900/30 text-primary text-sm font-bold"
-                  >Lab Reagents</span
-                >
-                <span
-                  class="px-4 py-2 rounded-xl bg-blue-50 dark:bg-blue-900/30 text-primary text-sm font-bold"
-                  >Pharmaceuticals</span
-                >
+
+              <!-- Tags de spécialité -->
+              <div class="flex flex-wrap justify-center gap-3">
+                <span class="px-4 py-2 rounded-xl bg-blue-50 text-primary text-sm font-bold">Medical Equipment</span>
+                <span class="px-4 py-2 rounded-xl bg-blue-50 text-primary text-sm font-bold">Lab Reagents</span>
+                <span class="px-4 py-2 rounded-xl bg-blue-50 text-primary text-sm font-bold">Pharmaceuticals</span>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
-    <section class="py-24 px-6 relative overflow-hidden">
+
+    <!-- ============================================================
+         SECTION ORGANIGRAMME
+         - Structure hiérarchique de l'entreprise
+    ============================================================ -->
+    <section class="py-16 sm:py-24 px-6 relative overflow-hidden">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-20">
-          <h2
-            class="text-4xl font-extrabold text-slate-900 dark:text-white mb-4"
-          >
+
+        <!-- En-tête de section -->
+        <div class="text-center mb-12 sm:mb-20">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">
             Organizational Structure
           </h2>
-          <div
-            class="w-20 h-1.5 bg-gradient-to-r from-primary to-blue-300 mx-auto rounded-full"
-          ></div>
-          <p class="mt-6 text-slate-500 max-w-xl mx-auto">
-            Our streamlined leadership ensures efficiency and excellence in
-            every department.
+          <!-- Ligne décorative -->
+          <div class="w-20 h-1.5 bg-gradient-to-r from-primary to-blue-300 mx-auto rounded-full"></div>
+          <p class="mt-6 text-slate-500 max-w-xl mx-auto text-sm sm:text-base">
+            Our streamlined leadership ensures efficiency and excellence in every department.
           </p>
         </div>
-        <div class="flex flex-col items-center gap-10">
-          <div
-            class="glass-nav p-8 rounded-3xl shadow-xl w-80 text-center border-b-4 border-primary transform transition-all hover:scale-105"
-          >
-            <span
-              class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-2"
-              >General Management</span
-            >
-            <h3 class="font-extrabold text-xl text-slate-900 mb-1">
-              DR KEVOREH
-            </h3>
+
+        <!-- Arbre hiérarchique -->
+        <div class="flex flex-col items-center gap-8 sm:gap-10">
+
+          <!-- Niveau 1 : Directeur Général -->
+          <div class="glass-nav p-6 sm:p-8 rounded-3xl shadow-xl w-full max-w-xs sm:w-80 text-center border-b-4 border-primary transform transition-all hover:scale-105">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-2">General Management</span>
+            <h3 class="font-extrabold text-lg sm:text-xl text-slate-900 mb-1">DR KEVOREH</h3>
             <p class="text-primary font-bold text-sm">Directeur Général</p>
           </div>
-          <div
-            class="w-0.5 h-10 bg-gradient-to-b from-primary/30 to-slate-200"
-          ></div>
-          <div class="flex flex-wrap justify-center gap-10">
-            <div
-              class="glass-nav p-6 rounded-2xl shadow-lg w-72 text-center border-b-4 border-blue-400 transform transition-all hover:scale-105"
-            >
-              <span
-                class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-1"
-                >Commercial</span
-              >
-              <h3 class="font-extrabold text-lg text-slate-900">
-                N'GUESSAN M.C.
-              </h3>
-              <p class="text-blue-500 font-bold text-sm">
-                Directeur Commercial
-              </p>
+
+          <!-- Connecteur vertical -->
+          <div class="w-0.5 h-8 bg-gradient-to-b from-primary/30 to-slate-200"></div>
+
+          <!-- Niveau 2 : Directeur Commercial + Pharmacien -->
+          <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-6 sm:gap-10 w-full">
+            <div class="glass-nav p-5 sm:p-6 rounded-2xl shadow-lg w-full max-w-xs mx-auto sm:w-72 text-center border-b-4 border-blue-400 transform transition-all hover:scale-105">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-1">Commercial</span>
+              <h3 class="font-extrabold text-base sm:text-lg text-slate-900">N'GUESSAN M.C.</h3>
+              <p class="text-blue-500 font-bold text-sm">Directeur Commercial</p>
             </div>
-            <div
-              class="glass-nav p-6 rounded-2xl shadow-lg w-72 text-center border-b-4 border-blue-400 transform transition-all hover:scale-105"
-            >
-              <span
-                class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-1"
-                >Technical</span
-              >
-              <h3 class="font-extrabold text-lg text-slate-900">DR KAMENAN</h3>
+            <div class="glass-nav p-5 sm:p-6 rounded-2xl shadow-lg w-full max-w-xs mx-auto sm:w-72 text-center border-b-4 border-blue-400 transform transition-all hover:scale-105">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-1">Technical</span>
+              <h3 class="font-extrabold text-base sm:text-lg text-slate-900">DR KAMENAN</h3>
               <p class="text-blue-500 font-bold text-sm">Pharmacien</p>
             </div>
           </div>
-          <div class="w-0.5 h-10 bg-slate-200"></div>
-          <div
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl"
-          >
-            <div
-              class="glass-card p-5 rounded-2xl text-center border border-white/50"
-            >
-              <h4 class="font-bold text-xs uppercase text-slate-400 mb-2">
-                Supervision
-              </h4>
-              <p class="font-extrabold text-slate-800">KOUADIO OLIVIER</p>
+
+          <!-- Connecteur vertical -->
+          <div class="w-0.5 h-8 bg-slate-200"></div>
+
+          <!-- Niveau 3 : Départements (grille responsive) -->
+          <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full max-w-6xl">
+
+            <!-- Supervision -->
+            <div class="glass-card p-4 sm:p-5 rounded-2xl text-center border border-white/50">
+              <h4 class="font-bold text-xs uppercase text-slate-400 mb-2">Supervision</h4>
+              <p class="font-extrabold text-slate-800 text-sm sm:text-base">KOUADIO OLIVIER</p>
             </div>
-            <div
-              class="glass-card p-5 rounded-2xl text-center border border-white/50"
-            >
-              <h4 class="font-bold text-xs uppercase text-slate-400 mb-2">
-                Accounting
-              </h4>
-              <p class="font-extrabold text-slate-800">TANO H.</p>
+
+            <!-- Comptabilité -->
+            <div class="glass-card p-4 sm:p-5 rounded-2xl text-center border border-white/50">
+              <h4 class="font-bold text-xs uppercase text-slate-400 mb-2">Accounting</h4>
+              <p class="font-extrabold text-slate-800 text-sm sm:text-base">TANO H.</p>
             </div>
-            <div
-              class="glass-card p-5 rounded-2xl text-center border border-white/50"
-            >
-              <h4 class="font-bold text-xs uppercase text-slate-400 mb-2">
-                Training
-              </h4>
-              <p class="font-extrabold text-slate-800">MME KOUADIO</p>
+
+            <!-- Formation -->
+            <div class="glass-card p-4 sm:p-5 rounded-2xl text-center border border-white/50">
+              <h4 class="font-bold text-xs uppercase text-slate-400 mb-2">Training</h4>
+              <p class="font-extrabold text-slate-800 text-sm sm:text-base">MME KOUADIO</p>
             </div>
-            <div
-              class="glass-card p-5 rounded-2xl text-center border border-white/50"
-            >
-              <h4 class="font-bold text-xs uppercase text-slate-400 mb-2">
-                Administration
-              </h4>
-              <p class="font-extrabold text-slate-800">AMANI MARTIAL</p>
+
+            <!-- Administration -->
+            <div class="glass-card p-4 sm:p-5 rounded-2xl text-center border border-white/50">
+              <h4 class="font-bold text-xs uppercase text-slate-400 mb-2">Administration</h4>
+              <p class="font-extrabold text-slate-800 text-sm sm:text-base">AMANI MARTIAL</p>
             </div>
+
           </div>
         </div>
       </div>
     </section>
-    <section class="py-24 px-6 bg-blue-50/50 dark:bg-slate-900/80">
+
+    <!-- ============================================================
+         SECTION ÉQUIPE
+         - Grille de cartes membres (1 → 2 → 4 colonnes selon écran)
+    ============================================================ -->
+    <section class="py-16 sm:py-24 px-6 bg-blue-50/50">
       <div class="max-w-7xl mx-auto">
-        <div
-          class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4"
-        >
+
+        <!-- En-tête de la section équipe -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 sm:mb-16 gap-4">
           <div>
-            <span
-              class="text-primary font-bold text-sm tracking-widest uppercase mb-2 block"
-              >Our Experts</span
-            >
-            <h2 class="text-4xl font-extrabold text-slate-900 dark:text-white">
-              The Dedicated Team
-            </h2>
-            <p class="text-slate-500 dark:text-slate-400 mt-2">
+            <span class="text-primary font-bold text-sm tracking-widest uppercase mb-2 block">Our Experts</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">The Dedicated Team</h2>
+            <p class="text-slate-500 mt-2 text-sm sm:text-base">
               The brilliant minds driving pharmaceutical excellence in Abidjan.
             </p>
           </div>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div
-            class="glass-card overflow-hidden rounded-[2rem] group transition-all hover:-translate-y-2 border border-white/60"
-          >
-            <div
-              class="h-72 bg-slate-200 dark:bg-slate-800 relative overflow-hidden"
-            >
+
+        <!-- Grille des membres : 1 col mobile, 2 col tablet, 4 col desktop -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+
+          <!-- Carte membre : Dr Kevoreh -->
+          <div class="glass-card overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] group transition-all hover:-translate-y-2 border border-white/60">
+            <div class="h-60 sm:h-72 bg-slate-200 relative overflow-hidden">
               <img
-                alt="Dr Kevoreh"
+                alt="Dr Kevoreh — General Manager"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAsM3Nk62JbuT2EFlgChDgxQS9y45dRdVH_7ovVmRoPHCRWpQmW0F6Uc__EsxkUrthF4q9k-o1JtUQ3756pptIuJa3pW6C2znWAFyyoJVzBQQJk6THx62w0fiUDJLg3KLJI3UmO42xkKSn58dgCxK5xwkewGbj4Pg3y5E6ECxwz5jzJo4d4oaIAPJdADT3Dk1VVj1nnyMEy3UepByOh6OucOA9ErT91TY11vql0dYyjlgqMyLImMmF85Sgby8SMsdK2GVmFRXVqE8"
               />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-              ></div>
+              <!-- Overlay au survol -->
+              <div class="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
-            <div class="p-6 text-center">
-              <h3 class="font-extrabold text-lg text-slate-900 dark:text-white">
-                Dr Kevoreh
-              </h3>
-              <p
-                class="text-primary text-sm font-bold uppercase tracking-wider mt-1"
-              >
-                General Manager
-              </p>
+            <div class="p-5 sm:p-6 text-center">
+              <h3 class="font-extrabold text-base sm:text-lg text-slate-900">Dr Kevoreh</h3>
+              <p class="text-primary text-xs sm:text-sm font-bold uppercase tracking-wider mt-1">General Manager</p>
             </div>
           </div>
-          <div
-            class="glass-card overflow-hidden rounded-[2rem] group transition-all hover:-translate-y-2 border border-white/60"
-          >
-            <div
-              class="h-72 bg-slate-200 dark:bg-slate-800 relative overflow-hidden"
-            >
+
+          <!-- Carte membre : Mme Kouadio Marie -->
+          <div class="glass-card overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] group transition-all hover:-translate-y-2 border border-white/60">
+            <div class="h-60 sm:h-72 bg-slate-200 relative overflow-hidden">
               <img
-                alt="Mme Kouadio Marie"
+                alt="Mme Kouadio Marie — Marketing Director"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7p4N_HR1757AfFPQdVfBGuqle4kGT0SjoLSKTf4yqBMsBIHXp994FnIOcu5DMRQwGPcGO6vxafsWxkdqXh66W308WMIix8MVq3pzImjCbSPeLQZlqr3o3JRPtLbwS_S__XI2NeH4yiwTjUJdFzGHia8fwbIShD8SCaUVzeNJzdSaQz9OnYMiJ9MmHTFdtbOrz3aUf6RbJU4lkwF5k1DXXrEmAcU5Y8qsmxYN0naVmmsON_UbvH_2loIz9gBy3BMu8CdS8n_ZuUvw"
               />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-              ></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
-            <div class="p-6 text-center border-b-4 border-primary">
-              <h3 class="font-extrabold text-lg text-slate-900 dark:text-white">
-                Mme Kouadio Marie
-              </h3>
-              <p
-                class="text-primary text-sm font-bold uppercase tracking-wider mt-1"
-              >
-                Marketing Director
-              </p>
+            <div class="p-5 sm:p-6 text-center border-b-4 border-primary">
+              <h3 class="font-extrabold text-base sm:text-lg text-slate-900">Mme Kouadio Marie</h3>
+              <p class="text-primary text-xs sm:text-sm font-bold uppercase tracking-wider mt-1">Marketing Director</p>
             </div>
           </div>
-          <div
-            class="glass-card overflow-hidden rounded-[2rem] group transition-all hover:-translate-y-2 border border-white/60"
-          >
-            <div
-              class="h-72 bg-slate-200 dark:bg-slate-800 relative overflow-hidden"
-            >
+
+          <!-- Carte membre : Mme Patricia Kouadio -->
+          <div class="glass-card overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] group transition-all hover:-translate-y-2 border border-white/60">
+            <div class="h-60 sm:h-72 bg-slate-200 relative overflow-hidden">
               <img
-                alt="Mme Patricia Kouadio"
+                alt="Mme Patricia Kouadio — Bilingual Secretary"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPv69MELowGn15_DmiRKBU08Wark-ghgyP6uuxc4i_rtppg0EcySli1imUTcfKkuN6QwqH1R_dFWvzCUKuP8_9qYk_prhSKv9vLmuCtYTKlHrvP5xELZjBJuM3A4ny8RfGdLje0fTya-Aao0jt8E6V_mkX2Tf45QN0aRszgiJgzx4pCDgf-FhyqNt8HKvjNWJpoVyjBJ39vuBZi5j7TbfWHrE1ezFPWvDdattfisvj-3qOll7NNo4TWjJFPq3vzvIzvMv10VyBp5M"
               />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-              ></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
-            <div class="p-6 text-center">
-              <h3 class="font-extrabold text-lg text-slate-900 dark:text-white">
-                Mme Patricia Kouadio
-              </h3>
-              <p
-                class="text-primary text-sm font-bold uppercase tracking-wider mt-1"
-              >
-                Bilingual Secretary
-              </p>
+            <div class="p-5 sm:p-6 text-center">
+              <h3 class="font-extrabold text-base sm:text-lg text-slate-900">Mme Patricia Kouadio</h3>
+              <p class="text-primary text-xs sm:text-sm font-bold uppercase tracking-wider mt-1">Bilingual Secretary</p>
             </div>
           </div>
-          <div
-            class="glass-card overflow-hidden rounded-[2rem] group transition-all hover:-translate-y-2 border border-white/60"
-          >
-            <div
-              class="h-72 bg-slate-200 dark:bg-slate-800 relative overflow-hidden"
-            >
+
+          <!-- Carte membre : Mme Lakpe -->
+          <div class="glass-card overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] group transition-all hover:-translate-y-2 border border-white/60">
+            <div class="h-60 sm:h-72 bg-slate-200 relative overflow-hidden">
               <img
-                alt="Mme Lakpe"
+                alt="Mme Lakpe — General Supervisor"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYSTs5N4U4SOEoC7V68rz_l5qijChFX3f2qGF0d8Yxq-EDNRkmWeK-5pw7lmMexNZXo7Pe8yw_n1pYh9H8hSk2uGyxktDkYtxhi0H7oIPN6m3BBXLW2OgATSt4HVH9bPPmSEBhzgtEHyfnxsn543XTI_YWFSRVqCEVmVKFEvEZxQB_6tq6IE3iGWgzBftUJ7LiHhHU83fAzu-wQzx7lB702xewfR2qVaNk2Kla4jbtVlCY_oS1bRQB6l1m8dUvLfgtHegp5yFMn-c"
               />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-              ></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
-            <div class="p-6 text-center">
-              <h3 class="font-extrabold text-lg text-slate-900 dark:text-white">
-                Mme Lakpe
-              </h3>
-              <p
-                class="text-primary text-sm font-bold uppercase tracking-wider mt-1"
-              >
-                General Supervisor
-              </p>
+            <div class="p-5 sm:p-6 text-center">
+              <h3 class="font-extrabold text-base sm:text-lg text-slate-900">Mme Lakpe</h3>
+              <p class="text-primary text-xs sm:text-sm font-bold uppercase tracking-wider mt-1">General Supervisor</p>
             </div>
           </div>
-          <div
-            class="glass-card overflow-hidden rounded-[2rem] group transition-all hover:-translate-y-2 border border-white/60"
-          >
-            <div
-              class="h-72 bg-slate-200 dark:bg-slate-800 relative overflow-hidden"
-            >
+
+          <!-- Carte membre : Mr Lakpe -->
+          <div class="glass-card overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] group transition-all hover:-translate-y-2 border border-white/60">
+            <div class="h-60 sm:h-72 bg-slate-200 relative overflow-hidden">
               <img
-                alt="Mr Lakpe"
+                alt="Mr Lakpe — Former"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgeVBzvM-okzK2T8qlgic2FQnJ0cl_aJUeJEd-Iem2XbSEBXUEcEQCsLPtHTb3QlJGx-0ZEA8vcb_BBqlSlv3EJLsAT33ptWsnnCIZHInC4fUR6D_T15AdKbuAq_WElI0zUNl7GLfQqHVsXpV2_GG_A9KMP0sMZih0EVkpYStuGjAzmivO0Q8LI1D6FQDj2gQQQdqZJ4jEgzGTwo6cKdbA5aJ2VR4VRc2E8lqm1LL-RdJdJppYMX5xfx-27tuNqpZ790tUk3VpEsw"
               />
             </div>
-            <div class="p-6 text-center">
-              <h3 class="font-extrabold text-lg text-slate-900 dark:text-white">
-                Mr Lakpe
-              </h3>
-              <p
-                class="text-primary text-sm font-bold uppercase tracking-wider mt-1"
-              >
-                Former
-              </p>
+            <div class="p-5 sm:p-6 text-center">
+              <h3 class="font-extrabold text-base sm:text-lg text-slate-900">Mr Lakpe</h3>
+              <p class="text-primary text-xs sm:text-sm font-bold uppercase tracking-wider mt-1">Former</p>
             </div>
           </div>
-          <div
-            class="glass-card overflow-hidden rounded-[2rem] group transition-all hover:-translate-y-2 border border-white/60"
-          >
-            <div
-              class="h-72 bg-slate-200 dark:bg-slate-800 relative overflow-hidden"
-            >
+
+          <!-- Carte membre : Dr Kamenan Boua -->
+          <div class="glass-card overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] group transition-all hover:-translate-y-2 border border-white/60">
+            <div class="h-60 sm:h-72 bg-slate-200 relative overflow-hidden">
               <img
-                alt="Dr Kamenan Boua"
+                alt="Dr Kamenan Boua — Pharmacist"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnKLZjh4DR6O8yYXw5Bo-hW2ZwXuhHb9C-s9VE1M5qeoygmBxWhpNAkXos3dhyTievU14jH_rhwINd4emyt5rKrPYPs_lCFzXhtWDr0Gug2TUegfRmXA-qPWhXR0HDgfzWkYyjsxvGeTOpTb3K8McQQFhcxA5a1VTubge7BjXNLEid4N-_KY1K_jMedUcoJdUNz7uLthiUsKZXUibPuVemSAshOc5qb70EeyL0X7qo1EaN938TzSfjT3wv2vGXCLgVQ_faDJE_A6w"
               />
             </div>
-            <div class="p-6 text-center">
-              <h3 class="font-extrabold text-lg text-slate-900 dark:text-white">
-                Dr Kamenan Boua
-              </h3>
-              <p
-                class="text-primary text-sm font-bold uppercase tracking-wider mt-1"
-              >
-                Pharmacist
-              </p>
+            <div class="p-5 sm:p-6 text-center">
+              <h3 class="font-extrabold text-base sm:text-lg text-slate-900">Dr Kamenan Boua</h3>
+              <p class="text-primary text-xs sm:text-sm font-bold uppercase tracking-wider mt-1">Pharmacist</p>
             </div>
           </div>
-          <div
-            class="glass-card overflow-hidden rounded-[2rem] group transition-all hover:-translate-y-2 border border-white/60"
-          >
-            <div
-              class="h-72 bg-slate-200 dark:bg-slate-800 relative overflow-hidden"
-            >
+
+          <!-- Carte membre : Mr Konan Cédric -->
+          <div class="glass-card overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] group transition-all hover:-translate-y-2 border border-white/60">
+            <div class="h-60 sm:h-72 bg-slate-200 relative overflow-hidden">
               <img
-                alt="Mr Konan Cédric"
+                alt="Mr Konan Cédric — Lawyer"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0XM79AVq5rahkL1gzcQYrLmenXqqveT-9bEoXXwjsaHSHKJToICvV8Mz4cquqWwDJQybQhhTh-6Tbx4EB24dXTRonod68xt2ZTqOb5I82_QWx4DYfHzlsQB1be2T9a8KaKYPs2EhOdc7OK9rxwbJfIQCM39dek9TV69FmuxFqHXvwto8JeLXpWXfuoTD-GNp0JgNp59yVc3BJWBn9aYrDUQQRTow_c6xSHHjRL16FxoIStG77zs1XvOV3Xxfj-GBmjEpS0LuWFLc"
               />
             </div>
-            <div class="p-6 text-center">
-              <h3 class="font-extrabold text-lg text-slate-900 dark:text-white">
-                Mr Konan Cédric
-              </h3>
-              <p
-                class="text-primary text-sm font-bold uppercase tracking-wider mt-1"
-              >
-                Lawyer
-              </p>
+            <div class="p-5 sm:p-6 text-center">
+              <h3 class="font-extrabold text-base sm:text-lg text-slate-900">Mr Konan Cédric</h3>
+              <p class="text-primary text-xs sm:text-sm font-bold uppercase tracking-wider mt-1">Lawyer</p>
             </div>
           </div>
+
         </div>
       </div>
     </section>
-    <footer class="bg-slate-950 text-white pt-20 pb-10 px-6">
+
+    <!-- ============================================================
+         FOOTER
+         - 4 colonnes sur desktop, 2 sur tablet, 1 sur mobile
+    ============================================================ -->
+    <footer class="bg-slate-950 text-white pt-16 sm:pt-20 pb-10 px-6">
       <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div class="col-span-1 md:col-span-2">
-            <div class="flex items-center gap-2 mb-8">
-              <div
-                class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center"
-              >
-                <span class="material-symbols-outlined text-white text-xl"
-                  >medical_services</span
-                >
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 mb-12 sm:mb-16">
+
+          <!-- Colonne 1+2 : Logo + description + réseaux sociaux -->
+          <div class="col-span-1 sm:col-span-2">
+            <div class="flex items-center gap-2 mb-6 sm:mb-8">
+              <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+                <span class="material-symbols-outlined text-white text-xl">medical_services</span>
               </div>
-              <span class="font-extrabold text-2xl tracking-tight"
-                >KEVOREH PHARMA</span
-              >
+              <span class="font-extrabold text-xl sm:text-2xl tracking-tight">KEVOREH PHARMA</span>
             </div>
-            <p class="text-slate-400 max-w-sm mb-8 leading-relaxed">
+            <p class="text-slate-400 max-w-sm mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
               Elevating pharmaceutical standards in Ivory Coast through expert
               representation and premium laboratory solutions.
             </p>
+            <!-- Icônes réseaux sociaux -->
             <div class="flex gap-4">
-              <a
-                class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-primary transition-all hover:-translate-y-1"
-                href="#"
-              >
+              <a class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-primary transition-all hover:-translate-y-1" href="#">
                 <span class="material-symbols-outlined">public</span>
               </a>
-              <a
-                class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-primary transition-all hover:-translate-y-1"
-                href="#"
-              >
+              <a class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-primary transition-all hover:-translate-y-1" href="#">
                 <span class="material-symbols-outlined">alternate_email</span>
               </a>
             </div>
           </div>
+
+          <!-- Colonne 3 : Navigation -->
           <div>
-            <h4
-              class="font-bold mb-8 uppercase text-xs tracking-[0.2em] text-blue-400"
-            >
-              Navigation
-            </h4>
-            <ul class="space-y-4 text-slate-400">
-              <li>
-                <a
-                  class="hover:text-white transition-colors flex items-center gap-2"
-                  href="#"
-                  ><span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span
-                  >About Us</a
-                >
-              </li>
-              <li>
-                <a
-                  class="hover:text-white transition-colors flex items-center gap-2"
-                  href="#"
-                  ><span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span
-                  >Services</a
-                >
-              </li>
-              <li>
-                <a
-                  class="hover:text-white transition-colors flex items-center gap-2"
-                  href="#"
-                  ><span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span
-                  >Commitment</a
-                >
-              </li>
-              <li>
-                <a
-                  class="hover:text-white transition-colors flex items-center gap-2"
-                  href="#"
-                  ><span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span
-                  >Contact</a
-                >
-              </li>
+            <h4 class="font-bold mb-6 sm:mb-8 uppercase text-xs tracking-[0.2em] text-blue-400">Navigation</h4>
+            <ul class="space-y-3 sm:space-y-4 text-slate-400 text-sm">
+              <li><a class="hover:text-white transition-colors flex items-center gap-2" href="#"><span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span>About Us</a></li>
+              <li><a class="hover:text-white transition-colors flex items-center gap-2" href="#"><span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span>Services</a></li>
+              <li><a class="hover:text-white transition-colors flex items-center gap-2" href="#"><span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span>Commitment</a></li>
+              <li><a class="hover:text-white transition-colors flex items-center gap-2" href="#"><span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span>Contact</a></li>
             </ul>
           </div>
+
+          <!-- Colonne 4 : Contact -->
           <div>
-            <h4
-              class="font-bold mb-8 uppercase text-xs tracking-[0.2em] text-blue-400"
-            >
-              Reach Us
-            </h4>
-            <ul class="space-y-6 text-slate-400">
-              <li class="flex items-start gap-4">
-                <span class="material-symbols-outlined text-primary"
-                  >location_on</span
-                >
+            <h4 class="font-bold mb-6 sm:mb-8 uppercase text-xs tracking-[0.2em] text-blue-400">Reach Us</h4>
+            <ul class="space-y-4 sm:space-y-6 text-slate-400 text-sm">
+              <!-- Adresse -->
+              <li class="flex items-start gap-3 sm:gap-4">
+                <span class="material-symbols-outlined text-primary">location_on</span>
                 <span>Abidjan, Republic of Côte d'Ivoire</span>
               </li>
-              <li class="flex items-center gap-4">
+              <!-- Téléphone -->
+              <li class="flex items-center gap-3 sm:gap-4">
                 <span class="material-symbols-outlined text-primary">call</span>
                 <span>+225 00 00 00 00 00</span>
               </li>
             </ul>
           </div>
+
         </div>
-        <div
-          class="border-t border-white/10 pt-8 text-center text-slate-500 text-sm"
-        >
-          © 2023 KEVOREH PHARMA. Designed for pharmaceutical excellence.
+
+        <!-- Barre de copyright -->
+        <div class="border-t border-white/10 pt-8 text-center text-slate-500 text-xs sm:text-sm">
+          © 2024 KEVOREH PHARMA. Designed for pharmaceutical excellence.
         </div>
       </div>
     </footer>
+
+    <!-- ============================================================
+         JAVASCRIPT
+         - Gestion du menu hamburger mobile
+    ============================================================ -->
+    <script>
+      /**
+       * Bascule l'ouverture/fermeture du menu mobile.
+       * Met à jour aria-expanded pour l'accessibilité.
+       */
+      function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        const btn = document.getElementById('hamburger-btn');
+        const isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      }
+    </script>
+
   </body>
 </html>
