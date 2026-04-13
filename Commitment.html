@@ -1,32 +1,38 @@
 <!doctype html>
-
-<html class="light" lang="en">
+<html class="scroll-smooth" lang="fr">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Commitment - KEVOREH PHARMA</title>
+
+    <!-- ========================
+         DÉPENDANCES EXTERNES
+    ======================== -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Police principale : Manrope -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Icônes Material Symbols -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
+
+    <!-- ========================
+         CONFIGURATION TAILWIND
+         (darkMode supprimé)
+    ======================== -->
     <script id="tailwind-config">
       tailwind.config = {
-        darkMode: "class",
         theme: {
           extend: {
             colors: {
               primary: "#137fec",
               "background-light": "#f6f7f8",
-              "background-dark": "#101922",
             },
             fontFamily: {
               display: ["Manrope"],
@@ -41,19 +47,28 @@
         },
       };
     </script>
+
+    <!-- ========================
+         STYLES PERSONNALISÉS
+    ======================== -->
     <style>
+      /* Effet verre givré — cartes */
       .glass {
-        background: rgba(255, 255, 255, 0.7);
+        background: rgba(255, 255, 255, 0.75);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.35);
       }
-      .dark .glass {
-        background: rgba(16, 25, 34, 0.7);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+
+      /* Effet verre givré — navbar flottante (identique à index.html) */
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.35);
       }
+
+      /* Halo lumineux bleu au centre du hero */
       .hero-glow {
         background: radial-gradient(
           circle at 50% 50%,
@@ -61,404 +76,403 @@
           transparent 70%
         );
       }
+
+      /* Paramètres par défaut des icônes Material */
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+
+      /* ===========================
+         MENU DÉROULANT (DROPDOWN)
+      =========================== */
+      .nav-item-dropdown:hover .dropdown-menu {
+        display: block;
+      }
+
+      /* ===========================
+         MENU HAMBURGER MOBILE
+      =========================== */
+
+      /* Bouton hamburger : visible uniquement sur mobile */
+      #hamburger-btn {
+        display: flex;
+      }
+
+      /* Menu mobile : caché par défaut */
+      #mobile-menu {
+        display: none;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem 1.5rem 1.25rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      /* Menu mobile ouvert */
+      #mobile-menu.open {
+        display: flex;
+      }
+
+      /* Sur desktop (md+), on cache le bouton hamburger et le menu mobile */
+      @media (min-width: 768px) {
+        #hamburger-btn {
+          display: none;
+        }
+        #mobile-menu {
+          display: none !important;
+        }
+      }
     </style>
   </head>
-  <body
-    class="bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-white transition-colors duration-300"
-  >
-    <div
-      class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden"
-    >
-      <!-- Header / Navigation -->
-      <header
-        class="sticky top-0 z-50 glass border-b border-solid border-white/20 px-4 md:px-40 py-3"
-      >
-        <div
-          class="max-w-[1200px] mx-auto flex items-center justify-between whitespace-nowrap"
-        >
-          <div class="flex items-center gap-4 text-[#111418] dark:text-white">
-            <div class="size-8 text-primary">
-              <svg
-                fill="none"
-                viewbox="0 0 48 48"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
-            </div>
-            <h2 class="text-lg font-bold leading-tight tracking-tight">
-              KEVOREH PHARMA
-            </h2>
+
+  <!-- ========================
+       BODY (fond clair uniquement)
+  ======================== -->
+  <body class="bg-background-light font-display text-[#0d121b]">
+
+    <!-- ============================================================
+         BARRE DE NAVIGATION FIXE FLOTTANTE
+         - Identique à index.html (glass-nav, arrondie, fixed top-6)
+         - Logo + liens desktop + hamburger mobile
+         - Lien actif : Commitment (souligné en bleu)
+    ============================================================ -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-7xl z-50 glass-nav rounded-2xl shadow-lg border border-white/40">
+      <div class="px-6 h-16 flex items-center justify-between">
+
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+          <div class="w-9 h-9 bg-primary rounded-lg flex items-center justify-center shadow-md shadow-primary/20">
+            <span class="material-symbols-outlined text-white text-xl">medical_services</span>
           </div>
-          <div class="hidden lg:flex flex-1 justify-end gap-8 items-center">
-            <nav class="flex items-center gap-8">
-              <a
-                class="text-sm font-medium hover:text-primary transition-colors"
-                href="#"
-                >Home</a
-              >
-              <a
-                class="text-sm font-medium hover:text-primary transition-colors"
-                href="#"
-                >About</a
-              >
-              <a
-                class="text-sm font-medium hover:text-primary transition-colors"
-                href="#"
-                >Products</a
-              >
-              <div class="relative group">
-                <a
-                  class="text-primary text-sm font-bold flex items-center gap-1"
-                  href="#"
-                >
-                  Commitment
-                  <span class="material-symbols-outlined text-sm"
-                    >expand_more</span
-                  >
-                </a>
-                <div
-                  class="absolute top-full left-0 mt-2 hidden group-hover:block w-40 glass rounded-lg shadow-xl overflow-hidden"
-                >
-                  <a
-                    class="block px-4 py-3 text-sm hover:bg-primary/10 transition-colors"
-                    href="#"
-                    >Vision</a
-                  >
-                  <a
-                    class="block px-4 py-3 text-sm hover:bg-primary/10 transition-colors"
-                    href="#"
-                    >Galerie</a
-                  >
-                </div>
-              </div>
-              <a
-                class="text-sm font-medium hover:text-primary transition-colors"
-                href="#"
-                >Contact</a
-              >
-            </nav>
-            <button
-              class="bg-primary hover:bg-primary/90 text-white rounded-xl h-10 px-6 text-sm font-bold transition-all shadow-md"
-            >
-              Contact Us
+          <span class="font-bold text-lg tracking-tight text-slate-900">
+            KEVOREH <span class="text-primary">PHARMA</span>
+          </span>
+        </div>
+
+        <!-- Liens de navigation — affichés uniquement sur desktop (md+) -->
+        <div class="hidden md:flex items-center gap-8 font-semibold text-sm">
+          <a class="hover:text-primary transition-colors text-slate-600" href="index.html">Home</a>
+          <a class="hover:text-primary transition-colors text-slate-600" href="About.html">About Us</a>
+
+          <!-- Lien actif : Commitment avec sous-menu déroulant -->
+          <div class="nav-item-dropdown relative py-4">
+            <a class="text-primary border-b-2 border-primary flex items-center gap-1" href="commitment.html">
+              Commitment
+              <span class="material-symbols-outlined text-sm">expand_more</span>
+            </a>
+            <!-- Sous-menu -->
+            <div class="dropdown-menu hidden absolute top-full left-0 w-56 glass-nav rounded-xl shadow-xl p-2 mt-1 border border-white/50">
+              <a class="block px-4 py-3 hover:bg-white/50 rounded-lg transition-all text-slate-700 hover:text-primary" href="#">Regulatory Compliance</a>
+              <a class="block px-4 py-3 hover:bg-white/50 rounded-lg transition-all text-slate-700" href="#">Ethics &amp; Values</a>
+            </div>
+          </div>
+
+          <a class="hover:text-primary transition-colors text-slate-600" href="Service.html">Services</a>
+          <a class="hover:text-primary transition-colors text-slate-600" href="contacts.html">Contact</a>
+        </div>
+
+        <!-- Boutons à droite : langue + hamburger -->
+        <div class="flex items-center gap-3">
+          <!-- Sélecteur de langue -->
+          <button class="flex items-center justify-center rounded-lg h-10 px-4 border border-gray-200 bg-white/50 text-[#0d121b] text-sm font-bold tracking-[0.015em] hover:bg-white transition-all backdrop-blur-sm">
+            <span class="material-symbols-outlined text-sm mr-2">language</span>
+            <span>FR / EN</span>
+          </button>
+
+          <!-- Bouton hamburger — visible uniquement sur mobile -->
+          <button
+            id="hamburger-btn"
+            class="items-center justify-center p-2 rounded-lg hover:bg-white/50 transition-colors"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+            onclick="toggleMobileMenu()"
+          >
+            <span class="material-symbols-outlined text-slate-700">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           MENU MOBILE : liens visibles quand le hamburger est cliqué
+      ============================================================ -->
+      <div id="mobile-menu" role="navigation" aria-label="Menu mobile">
+        <a class="py-3 px-2 text-sm font-semibold text-slate-700 hover:text-primary transition-colors border-b border-gray-100" href="index.html">Home</a>
+        <a class="py-3 px-2 text-sm font-semibold text-slate-700 hover:text-primary transition-colors border-b border-gray-100" href="About.html">About Us</a>
+        <!-- Lien actif dans le menu mobile -->
+        <a class="py-3 px-2 text-sm font-semibold text-primary border-b border-gray-100">Commitment</a>
+        <a class="py-3 px-2 text-sm font-semibold text-slate-700 hover:text-primary transition-colors border-b border-gray-100" href="Service.html">Services</a>
+        <a class="py-3 px-2 text-sm font-semibold text-slate-700 hover:text-primary transition-colors" href="contacts.html">Contact</a>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         SECTION HERO
+         - Image de fond avec dégradé bleu
+         - pt-32 pour compenser la navbar fixe flottante
+    ============================================================ -->
+    <section class="relative pt-32 pb-8 sm:pb-12 px-4 md:px-10 lg:px-40">
+      <div class="max-w-[1200px] mx-auto">
+        <div
+          class="relative overflow-hidden rounded-xl min-h-[280px] sm:min-h-[360px] md:min-h-[440px] flex items-center justify-center border border-white/20 shadow-2xl"
+          style="
+            background-image:
+              linear-gradient(to bottom, rgba(19, 127, 236, 0.1), rgba(0, 0, 0, 0.4)),
+              url('https://lh3.googleusercontent.com/aida-public/AB6AXuBSU_NJxtqYyLP6pBpZhoz2vq_uhEpaFQkSserrN8fkuEbKe3pM9nTObVqWW3C6LdXSqVrYmvcER0-gRzG_Oc_Aqj-P71be70IEoQDRjtAZk72ppurpHASzCLyBSAA47_g-SvKcJaRpNt04CA_Eh8JJ9z3GEIkwyhiS2IMPsNjBCT_iy77NPAuDX25uasdvT0NAsRQEkbOyK-xaYzzio-wIGVnh4iY9v3MVfbpFjkTkxo6BPCwZOp-6a4wI9n6F6DgWL7hTIUM-_qU');
+            background-size: cover;
+            background-position: center;
+          "
+        >
+          <!-- Halo lumineux décoratif -->
+          <div class="absolute inset-0 hero-glow"></div>
+
+          <!-- Contenu centré du hero -->
+          <div class="relative z-10 text-center px-5 sm:px-8 max-w-2xl py-10 sm:py-0">
+            <h1 class="text-white text-3xl sm:text-4xl md:text-6xl font-black leading-tight tracking-tight mb-3 sm:mb-4 drop-shadow-lg">
+              Our Commitment
+            </h1>
+            <p class="text-white/90 text-sm sm:text-base md:text-lg font-medium leading-relaxed mb-6 sm:mb-8 drop-shadow-md">
+              Excellence in pharmaceutical care for a healthier future in
+              Abidjan and beyond. We build trust through transparency and
+              relentless quality.
+            </p>
+            <button class="bg-primary text-white rounded-xl h-11 sm:h-12 px-6 sm:px-8 font-bold text-sm sm:text-base hover:scale-105 transition-transform shadow-lg">
+              Discover Our Vision
             </button>
           </div>
         </div>
-      </header>
-      <!-- Hero Section -->
-      <section class="relative py-12 px-4 md:px-40">
-        <div class="max-w-[1200px] mx-auto">
-          <div
-            class="relative overflow-hidden rounded-xl aspect-[21/9] min-h-[400px] flex items-center justify-center bg-background-light dark:bg-background-dark border border-white/20 shadow-2xl"
-            data-alt="Ethereal blue medical research laboratory background"
-            style="
-              background-image:
-                linear-gradient(
-                  to bottom,
-                  rgba(19, 127, 236, 0.1),
-                  rgba(0, 0, 0, 0.4)
-                ),
-                url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBSU_NJxtqYyLP6pBpZhoz2vq_uhEpaFQkSserrN8fkuEbKe3pM9nTObVqWW3C6LdXSqVrYmvcER0-gRzG_Oc_Aqj-P71be70IEoQDRjtAZk72ppurpHASzCLyBSAA47_g-SvKcJaRpNt04CA_Eh8JJ9z3GEIkwyhiS2IMPsNjBCT_iy77NPAuDX25uasdvT0NAsRQEkbOyK-xaYzzio-wIGVnh4iY9v3MVfbpFjkTkxo6BPCwZOp-6a4wI9n6F6DgWL7hTIUM-_qU&quot;);
-              background-size: cover;
-              background-position: center;
-            "
-          >
-            <div class="absolute inset-0 hero-glow"></div>
-            <div class="relative z-10 text-center px-6 max-w-2xl">
-              <h1
-                class="text-white text-4xl md:text-6xl font-black leading-tight tracking-tight mb-4 drop-shadow-lg"
-              >
-                Our Commitment
-              </h1>
-              <p
-                class="text-white/90 text-base md:text-lg font-medium leading-relaxed mb-8 drop-shadow-md"
-              >
-                Excellence in pharmaceutical care for a healthier future in
-                Abidjan and beyond. We build trust through transparency and
-                relentless quality.
-              </p>
-              <div class="flex justify-center gap-4">
-                <button
-                  class="bg-primary text-white rounded-xl h-12 px-8 font-bold text-base hover:scale-105 transition-transform shadow-lg"
-                >
-                  Discover Our Vision
-                </button>
-              </div>
-            </div>
-          </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION PILIERS FONDAMENTAUX
+         - 4 cartes : Éthique, Qualité, Innovation, Communauté
+         - Grille 1 col mobile → 2 col tablet → 4 col desktop
+    ============================================================ -->
+    <section class="py-10 sm:py-12 px-4 md:px-10 lg:px-40">
+      <div class="max-w-[1200px] mx-auto">
+
+        <div class="mb-8 sm:mb-10 text-center">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Our Core Pillars</h2>
+          <div class="h-1 w-16 sm:w-20 bg-primary mx-auto mt-4 rounded-full"></div>
         </div>
-      </section>
-      <!-- Core Pillars Section -->
-      <section class="py-12 px-4 md:px-40">
-        <div class="max-w-[1200px] mx-auto">
-          <div class="mb-10 text-center">
-            <h2 class="text-3xl font-bold tracking-tight">Our Core Pillars</h2>
-            <div class="h-1 w-20 bg-primary mx-auto mt-4 rounded-full"></div>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Ethics Card -->
-            <div
-              class="group glass p-8 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:shadow-primary/20 hover:shadow-2xl hover:-translate-y-2"
-            >
-              <div
-                class="size-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300"
-              >
-                <span class="material-symbols-outlined text-3xl">balance</span>
-              </div>
-              <h3 class="text-xl font-bold mb-3">Ethics</h3>
-              <p
-                class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed"
-              >
-                Upholding the highest moral standards in medicine and patient
-                interaction at every step.
-              </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+
+          <!-- Pilier 1 : Éthique -->
+          <div class="group glass p-6 sm:p-8 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:shadow-primary/20 hover:shadow-2xl hover:-translate-y-2">
+            <div class="size-14 sm:size-16 bg-primary/10 rounded-full flex items-center justify-center mb-5 sm:mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+              <span class="material-symbols-outlined text-2xl sm:text-3xl">balance</span>
             </div>
-            <!-- Quality Card -->
-            <div
-              class="group glass p-8 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:shadow-primary/20 hover:shadow-2xl hover:-translate-y-2"
-            >
-              <div
-                class="size-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300"
-              >
-                <span class="material-symbols-outlined text-3xl"
-                  >verified_user</span
-                >
-              </div>
-              <h3 class="text-xl font-bold mb-3">Quality</h3>
-              <p
-                class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed"
-              >
-                Exceeding international pharmaceutical benchmarks with rigorous
-                testing and certification.
-              </p>
-            </div>
-            <!-- Innovation Card -->
-            <div
-              class="group glass p-8 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:shadow-primary/20 hover:shadow-2xl hover:-translate-y-2"
-            >
-              <div
-                class="size-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300"
-              >
-                <span class="material-symbols-outlined text-3xl">science</span>
-              </div>
-              <h3 class="text-xl font-bold mb-3">Innovation</h3>
-              <p
-                class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed"
-              >
-                Pioneering new delivery solutions for modern health challenges
-                in West Africa.
-              </p>
-            </div>
-            <!-- Community Health Card -->
-            <div
-              class="group glass p-8 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:shadow-primary/20 hover:shadow-2xl hover:-translate-y-2"
-            >
-              <div
-                class="size-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300"
-              >
-                <span class="material-symbols-outlined text-3xl"
-                  >diversity_3</span
-                >
-              </div>
-              <h3 class="text-xl font-bold mb-3">Community</h3>
-              <p
-                class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed"
-              >
-                Improving the well-being of the Ivory Coast community through
-                accessible healthcare.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Quality Standards Section -->
-      <section class="py-16 px-4 md:px-40 bg-primary/5 dark:bg-primary/5">
-        <div class="max-w-[1200px] mx-auto">
-          <div class="flex flex-col lg:flex-row items-center gap-12">
-            <div class="flex-1">
-              <h2 class="text-3xl font-bold mb-6">
-                International Quality Standards
-              </h2>
-              <p
-                class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed"
-              >
-                Kevoreh Pharma operates in strict compliance with the World
-                Health Organization (WHO) Good Manufacturing Practices (GMP).
-                Our commitment to safety is absolute, ensuring every product
-                that leaves our facility is of the highest purity and efficacy.
-              </p>
-              <div class="space-y-4">
-                <div class="flex items-start gap-4 glass p-4 rounded-lg">
-                  <span class="material-symbols-outlined text-primary font-bold"
-                    >check_circle</span
-                  >
-                  <div>
-                    <h4 class="font-bold">ISO 9001:2015 Certified</h4>
-                    <p class="text-sm text-slate-500">
-                      Quality Management Systems across all operations.
-                    </p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-4 glass p-4 rounded-lg">
-                  <span class="material-symbols-outlined text-primary font-bold"
-                    >check_circle</span
-                  >
-                  <div>
-                    <h4 class="font-bold">GMP Compliant Facilities</h4>
-                    <p class="text-sm text-slate-500">
-                      Adhering to Good Manufacturing Practices globally.
-                    </p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-4 glass p-4 rounded-lg">
-                  <span class="material-symbols-outlined text-primary font-bold"
-                    >check_circle</span
-                  >
-                  <div>
-                    <h4 class="font-bold">Rigorous Pharmacovigilance</h4>
-                    <p class="text-sm text-slate-500">
-                      Continuous monitoring of drug safety and efficacy.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="flex-1 w-full max-w-md">
-              <div class="relative">
-                <div
-                  class="absolute -inset-4 bg-primary/20 blur-3xl rounded-full"
-                ></div>
-                <img
-                  alt="Laboratory worker checking quality"
-                  class="relative rounded-2xl shadow-2xl border border-white/20 w-full"
-                  data-alt="Laboratory technician performing quality control inspection"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZaRwZOgfIyRNj5WlEbQISiF12iqSZ6aEmq5DfqZ0ITdSHGBVGaTUbKHaUUXUZJf0844bWIrIXrpeeZdCDc5kopaCJQhb6ILy27Tpegqe5vMTm97uDL9Vr3ntSz6YEPR90CVowUDYg0Gexb6wLV7EjnvttR2xwFm4d6L9XO-H32pySfqp6xpSFkVdorrTvB_9V3m0keKgyDyMpa8NHn56dmJwtuqfMGq5vl6hHXNXWzT8tAts6ZG2reETbqhHAdU5s1GiUmC7OjFo"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- CSR Section -->
-      <section class="py-20 px-4 md:px-40">
-        <div class="max-w-[1200px] mx-auto text-center">
-          <h2 class="text-3xl font-bold mb-4">
-            Corporate Social Responsibility
-          </h2>
-          <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-12">
-            Our impact goes beyond medicine. We are deeply rooted in Abidjan,
-            supporting local development and health education programs across
-            Ivory Coast.
-          </p>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div
-              class="p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark shadow-sm"
-            >
-              <h4 class="text-primary text-4xl font-black mb-2">15k+</h4>
-              <p class="font-bold mb-2">Patients Supported</p>
-              <p class="text-sm text-slate-500">
-                Annual reach of our subsidized medicine programs in rural areas.
-              </p>
-            </div>
-            <div
-              class="p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark shadow-sm"
-            >
-              <h4 class="text-primary text-4xl font-black mb-2">200+</h4>
-              <p class="font-bold mb-2">Local Jobs</p>
-              <p class="text-sm text-slate-500">
-                Providing sustainable employment and training in Abidjan.
-              </p>
-            </div>
-            <div
-              class="p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark shadow-sm"
-            >
-              <h4 class="text-primary text-4xl font-black mb-2">50+</h4>
-              <p class="font-bold mb-2">Health Workshops</p>
-              <p class="text-sm text-slate-500">
-                Educational seminars conducted yearly for community health.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Footer -->
-      <footer
-        class="bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 py-12 px-4 md:px-40 mt-auto"
-      >
-        <div
-          class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12"
-        >
-          <div class="col-span-1 md:col-span-1">
-            <div class="flex items-center gap-2 mb-6">
-              <div class="size-6 text-primary">
-                <svg
-                  fill="none"
-                  viewbox="0 0 48 48"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
-              </div>
-              <h2 class="text-lg font-bold">KEVOREH PHARMA</h2>
-            </div>
-            <p class="text-sm text-slate-500 leading-relaxed">
-              Leading pharmaceutical innovation and care in the heart of
-              Abidjan, Ivory Coast.
+            <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Ethics</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Upholding the highest moral standards in medicine and patient interaction at every step.
             </p>
           </div>
-          <div>
-            <h5 class="font-bold mb-6">Quick Links</h5>
-            <ul class="space-y-4 text-sm text-slate-500">
-              <li><a class="hover:text-primary" href="#">Home</a></li>
-              <li><a class="hover:text-primary" href="#">About Us</a></li>
-              <li><a class="hover:text-primary" href="#">Our Products</a></li>
-              <li><a class="hover:text-primary" href="#">Commitment</a></li>
-            </ul>
+
+          <!-- Pilier 2 : Qualité -->
+          <div class="group glass p-6 sm:p-8 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:shadow-primary/20 hover:shadow-2xl hover:-translate-y-2">
+            <div class="size-14 sm:size-16 bg-primary/10 rounded-full flex items-center justify-center mb-5 sm:mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+              <span class="material-symbols-outlined text-2xl sm:text-3xl">verified_user</span>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Quality</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Exceeding international pharmaceutical benchmarks with rigorous testing and certification.
+            </p>
           </div>
-          <div>
-            <h5 class="font-bold mb-6">Legal</h5>
-            <ul class="space-y-4 text-sm text-slate-500">
-              <li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
-              <li>
-                <a class="hover:text-primary" href="#">Terms of Service</a>
-              </li>
-              <li><a class="hover:text-primary" href="#">Ethics Policy</a></li>
-              <li><a class="hover:text-primary" href="#">Certifications</a></li>
-            </ul>
+
+          <!-- Pilier 3 : Innovation -->
+          <div class="group glass p-6 sm:p-8 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:shadow-primary/20 hover:shadow-2xl hover:-translate-y-2">
+            <div class="size-14 sm:size-16 bg-primary/10 rounded-full flex items-center justify-center mb-5 sm:mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+              <span class="material-symbols-outlined text-2xl sm:text-3xl">science</span>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Innovation</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Pioneering new delivery solutions for modern health challenges in West Africa.
+            </p>
           </div>
-          <div>
-            <h5 class="font-bold mb-6">Contact</h5>
-            <ul class="space-y-4 text-sm text-slate-500">
-              <li class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-sm"
-                  >location_on</span
-                >
-                Abidjan, Ivory Coast
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-sm">mail</span>
-                info@kevoreh-pharma.ci
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-sm">call</span>
-                +225 27 22 00 00 00
-              </li>
-            </ul>
+
+          <!-- Pilier 4 : Communauté -->
+          <div class="group glass p-6 sm:p-8 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:shadow-primary/20 hover:shadow-2xl hover:-translate-y-2">
+            <div class="size-14 sm:size-16 bg-primary/10 rounded-full flex items-center justify-center mb-5 sm:mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+              <span class="material-symbols-outlined text-2xl sm:text-3xl">diversity_3</span>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Community</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Improving the well-being of the Ivory Coast community through accessible healthcare.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION NORMES QUALITÉ INTERNATIONALES
+    ============================================================ -->
+    <section class="py-12 sm:py-16 px-4 md:px-10 lg:px-40 bg-primary/5">
+      <div class="max-w-[1200px] mx-auto">
+        <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-12">
+
+          <div class="flex-1 w-full">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">International Quality Standards</h2>
+            <p class="text-slate-600 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
+              Kevoreh Pharma operates in strict compliance with the World Health Organization (WHO)
+              Good Manufacturing Practices (GMP). Our commitment to safety is absolute, ensuring every
+              product that leaves our facility is of the highest purity and efficacy.
+            </p>
+            <div class="space-y-3 sm:space-y-4">
+              <div class="flex items-start gap-3 sm:gap-4 glass p-3 sm:p-4 rounded-lg">
+                <span class="material-symbols-outlined text-primary font-bold shrink-0">check_circle</span>
+                <div>
+                  <h4 class="font-bold text-sm sm:text-base">ISO 9001:2015 Certified</h4>
+                  <p class="text-xs sm:text-sm text-slate-500">Quality Management Systems across all operations.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 sm:gap-4 glass p-3 sm:p-4 rounded-lg">
+                <span class="material-symbols-outlined text-primary font-bold shrink-0">check_circle</span>
+                <div>
+                  <h4 class="font-bold text-sm sm:text-base">GMP Compliant Facilities</h4>
+                  <p class="text-xs sm:text-sm text-slate-500">Adhering to Good Manufacturing Practices globally.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 sm:gap-4 glass p-3 sm:p-4 rounded-lg">
+                <span class="material-symbols-outlined text-primary font-bold shrink-0">check_circle</span>
+                <div>
+                  <h4 class="font-bold text-sm sm:text-base">Rigorous Pharmacovigilance</h4>
+                  <p class="text-xs sm:text-sm text-slate-500">Continuous monitoring of drug safety and efficacy.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-1 w-full max-w-md mx-auto lg:mx-0">
+            <div class="relative">
+              <div class="absolute -inset-4 bg-primary/20 blur-3xl rounded-full"></div>
+              <img
+                alt="Laboratory technician performing quality control inspection"
+                class="relative rounded-2xl shadow-2xl border border-white/20 w-full"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZaRwZOgfIyRNj5WlEbQISiF12iqSZ6aEmq5DfqZ0ITdSHGBVGaTUbKHaUUXUZJf0844bWIrIXrpeeZdCDc5kopaCJQhb6ILy27Tpegqe5vMTm97uDL9Vr3ntSz6YEPR90CVowUDYg0Gexb6wLV7EjnvttR2xwFm4d6L9XO-H32pySfqp6xpSFkVdorrTvB_9V3m0keKgyDyMpa8NHn56dmJwtuqfMGq5vl6hHXNXWzT8tAts6ZG2reETbqhHAdU5s1GiUmC7OjFo"
+              />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION RSE
+    ============================================================ -->
+    <section class="py-16 sm:py-20 px-4 md:px-10 lg:px-40">
+      <div class="max-w-[1200px] mx-auto text-center">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Corporate Social Responsibility</h2>
+        <p class="text-slate-600 max-w-2xl mx-auto mb-10 sm:mb-12 text-sm sm:text-base">
+          Our impact goes beyond medicine. We are deeply rooted in Abidjan,
+          supporting local development and health education programs across Ivory Coast.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+          <div class="p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <h4 class="text-primary text-3xl sm:text-4xl font-black mb-2">15k+</h4>
+            <p class="font-bold mb-1 sm:mb-2 text-sm sm:text-base">Patients Supported</p>
+            <p class="text-xs sm:text-sm text-slate-500">Annual reach of our subsidized medicine programs in rural areas.</p>
+          </div>
+          <div class="p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <h4 class="text-primary text-3xl sm:text-4xl font-black mb-2">200+</h4>
+            <p class="font-bold mb-1 sm:mb-2 text-sm sm:text-base">Local Jobs</p>
+            <p class="text-xs sm:text-sm text-slate-500">Providing sustainable employment and training in Abidjan.</p>
+          </div>
+          <div class="p-6 sm:p-8 rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <h4 class="text-primary text-3xl sm:text-4xl font-black mb-2">50+</h4>
+            <p class="font-bold mb-1 sm:mb-2 text-sm sm:text-base">Health Workshops</p>
+            <p class="text-xs sm:text-sm text-slate-500">Educational seminars conducted yearly for community health.</p>
           </div>
         </div>
-        <div
-          class="max-w-[1200px] mx-auto mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-500"
-        >
-          © 2024 KEVOREH PHARMA. All rights reserved.
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER
+    ============================================================ -->
+    <footer class="bg-white border-t border-slate-200 py-10 sm:py-12 px-4 md:px-10 lg:px-40 mt-auto">
+      <div class="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12">
+
+        <div class="col-span-1">
+          <div class="flex items-center gap-2 mb-5 sm:mb-6">
+            <div class="size-6 text-primary">
+              <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h2 class="text-base sm:text-lg font-bold">KEVOREH PHARMA</h2>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
+            Leading pharmaceutical innovation and care in the heart of Abidjan, Ivory Coast.
+          </p>
         </div>
-      </footer>
-    </div>
+
+        <div>
+          <h5 class="font-bold mb-4 sm:mb-6 text-sm sm:text-base">Quick Links</h5>
+          <ul class="space-y-3 sm:space-y-4 text-xs sm:text-sm text-slate-500">
+            <li><a class="hover:text-primary transition-colors" href="index.html">Home</a></li>
+            <li><a class="hover:text-primary transition-colors" href="About.html">About Us</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Our Products</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Commitment</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="font-bold mb-4 sm:mb-6 text-sm sm:text-base">Legal</h5>
+          <ul class="space-y-3 sm:space-y-4 text-xs sm:text-sm text-slate-500">
+            <li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Ethics Policy</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Certifications</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="font-bold mb-4 sm:mb-6 text-sm sm:text-base">Contact</h5>
+          <ul class="space-y-3 sm:space-y-4 text-xs sm:text-sm text-slate-500">
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-sm text-primary shrink-0">location_on</span>
+              Abidjan, Ivory Coast
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-sm text-primary shrink-0">mail</span>
+              info@kevoreh-pharma.ci
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-sm text-primary shrink-0">call</span>
+              +225 27 22 00 00 00
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="max-w-[1200px] mx-auto mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-200 text-center text-xs text-slate-500">
+        © 2024 KEVOREH PHARMA. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- ============================================================
+         JAVASCRIPT
+         - Gestion du menu hamburger mobile (fonction complète)
+    ============================================================ -->
+    <script>
+      /**
+       * Ouvre ou ferme le menu mobile en ajoutant/retirant la classe "open".
+       * Met également à jour l'attribut aria-expanded pour l'accessibilité.
+       */
+      function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        const btn = document.getElementById('hamburger-btn');
+        const isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      }
+    </script>
+
   </body>
 </html>

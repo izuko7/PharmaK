@@ -1,0 +1,455 @@
+<!doctype html>
+
+<html class="light" lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;family=Inter:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-error-container": "#93000a",
+              secondary: "#405e96",
+              "secondary-fixed": "#d8e2ff",
+              "inverse-surface": "#2f3131",
+              "on-primary": "#ffffff",
+              "surface-variant": "#e2e2e2",
+              "on-error": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#fffbff",
+              error: "#ba1a1a",
+              "on-primary-fixed-variant": "#004493",
+              "inverse-on-surface": "#f0f1f1",
+              "surface-container-highest": "#e2e2e2",
+              "on-primary-container": "#fefcff",
+              "tertiary-fixed": "#ffdbcc",
+              "secondary-fixed-dim": "#adc7ff",
+              "primary-container": "#0070ea",
+              background: "#f9f9f9",
+              surface: "#f9f9f9",
+              outline: "#717786",
+              "error-container": "#ffdad6",
+              "inverse-primary": "#adc7ff",
+              "surface-bright": "#f9f9f9",
+              "on-secondary-container": "#2f4e85",
+              "on-tertiary-fixed-variant": "#7c2e00",
+              "on-secondary": "#ffffff",
+              "surface-container": "#eeeeee",
+              "on-primary-fixed": "#001a41",
+              "on-tertiary-fixed": "#351000",
+              tertiary: "#9e3d00",
+              "surface-tint": "#005bc0",
+              "on-secondary-fixed-variant": "#26467c",
+              "tertiary-container": "#c64f00",
+              "secondary-container": "#a4c1ff",
+              "primary-fixed-dim": "#adc7ff",
+              "on-secondary-fixed": "#001a41",
+              "surface-container-high": "#e8e8e8",
+              "on-background": "#1a1c1c",
+              "on-surface": "#1a1c1c",
+              "outline-variant": "#c1c6d7",
+              "on-tertiary": "#ffffff",
+              "surface-dim": "#dadada",
+              primary: "#0059bb",
+              "tertiary-fixed-dim": "#ffb695",
+              "on-surface-variant": "#414754",
+              "primary-fixed": "#d8e2ff",
+              "surface-container-low": "#f3f3f4",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Manrope"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .glass-card {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 300,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+    </style>
+  </head>
+  <body class="bg-surface font-body text-on-surface antialiased">
+    <!-- TopNavBar -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-white/60 backdrop-blur-xl shadow-[0px_20px_40px_rgba(0,89,187,0.06)]"
+    >
+      <div
+        class="flex justify-between items-center px-12 h-20 w-full max-w-screen-2xl mx-auto font-['Manrope'] antialiased tracking-tight"
+      >
+        <div class="text-xl font-bold tracking-tighter text-blue-800">
+          KEVOREH PHARMA
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+          <a
+            class="text-slate-600 hover:text-blue-600 transition-all duration-300"
+            href="index.html"
+            >Home</a
+          >
+          <a
+            class="text-slate-600 hover:text-blue-600 transition-all duration-300"
+            href="#"
+            >About Us</a
+          >
+          <a
+            class="text-slate-600 hover:text-blue-600 transition-all duration-300"
+            href="#"
+            >Expertise</a
+          >
+          <a
+            class="text-slate-600 hover:text-blue-600 transition-all duration-300"
+            href="#"
+            >Commitment</a
+          >
+          <a
+            class="text-blue-700 font-semibold border-b-2 border-blue-600 transition-all duration-300"
+            href="#"
+            >Services</a
+          >
+          <a
+            class="text-slate-600 hover:text-blue-600 transition-all duration-300"
+            href="#"
+            >Contact</a
+          >
+        </div>
+        <div class="flex items-center gap-4">
+          <div
+            class="font-label text-[0.75rem] font-bold tracking-wider text-slate-700 flex flex-col items-center group cursor-pointer"
+          >
+            <span class="text-primary">FR</span>
+            <div class="w-1 h-1 bg-surface-tint rounded-full mt-0.5"></div>
+          </div>
+          <div
+            class="font-label text-[0.75rem] font-bold tracking-wider text-slate-400 hover:text-primary transition-colors cursor-pointer"
+          >
+            EN
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <!-- Hero Section -->
+      <section class="relative pt-40 pb-32 px-12 overflow-hidden bg-surface">
+        <div
+          class="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none"
+        >
+          <img
+            alt="Clean Medical Laboratory"
+            class="w-full h-full object-cover"
+            data-alt="abstract high-end medical laboratory background with clean white surfaces, soft blue lighting, and out-of-focus scientific glassware"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuANL0JEwifDh82KcRJiD2bGHV2g917gbR06kA6FYS_Sx_HgmjRdL46LSL0oQWKJZudV_zC3rZSZ93CIQSOYpibXuTI_xnYQrV_aN6R9RG_ldJ9SzGCeaXXhesjscYbHpdPY77OAI05_XcyC3mt-dWcgI3k1ME9JssBLlJi57qyOrJQ74WigoNGbp-K7rd1Nm23J9iv_UVEnd0UlcwhI4hMVf4nqX3LbEelzV6bW0smlVzAvpkDOc2r0iU5GV87a0FxDlESwUdgg24o"
+          />
+        </div>
+        <div class="max-w-screen-2xl mx-auto relative z-10">
+          <span
+            class="font-label text-[0.75rem] font-bold text-primary tracking-[0.2em] uppercase mb-4 block"
+            >Notre Expertise</span
+          >
+          <h1
+            class="text-[3.5rem] font-light leading-tight tracking-tight text-on-surface max-w-3xl mb-8"
+          >
+            Nos <span class="font-bold text-primary">Services</span>
+          </h1>
+          <p class="text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Chez KEVOREH PHARMA, nous combinons précision scientifique et
+            efficacité opérationnelle pour servir l'écosystème de santé en Côte
+            d'Ivoire.
+          </p>
+        </div>
+      </section>
+      <!-- Services Grid -->
+      <section class="py-24 px-12 bg-surface-container-low">
+        <div class="max-w-screen-2xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Card 1: Distribution -->
+            <div
+              class="glass-card p-10 rounded-xl shadow-[0px_20px_40px_rgba(0,89,187,0.06)] flex flex-col items-start transition-all duration-500 hover:-translate-y-2 hover:bg-white/80 group"
+            >
+              <div
+                class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300"
+              >
+                <span
+                  class="material-symbols-outlined text-primary text-3xl"
+                  data-icon="local_shipping"
+                  >local_shipping</span
+                >
+              </div>
+              <h3 class="text-xl font-semibold text-on-surface mb-4">
+                Distribution Pharmaceutique
+              </h3>
+              <p class="text-on-surface-variant leading-relaxed text-sm">
+                Solutions logistiques de pointe et gestion de la chaîne
+                d'approvisionnement sécurisée sur tout le territoire ivoirien.
+              </p>
+              <div class="mt-8 pt-6 border-t border-primary/5 w-full">
+                <a
+                  class="text-primary font-medium text-sm flex items-center gap-2 group/link"
+                  href="#"
+                >
+                  En savoir plus
+                  <span
+                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1"
+                    data-icon="arrow_forward"
+                    >arrow_forward</span
+                  >
+                </a>
+              </div>
+            </div>
+            <!-- Card 2: Promotion -->
+            <div
+              class="glass-card p-10 rounded-xl shadow-[0px_20px_40px_rgba(0,89,187,0.06)] flex flex-col items-start transition-all duration-500 hover:-translate-y-2 hover:bg-white/80 group"
+            >
+              <div
+                class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300"
+              >
+                <span
+                  class="material-symbols-outlined text-primary text-3xl"
+                  data-icon="campaign"
+                  >campaign</span
+                >
+              </div>
+              <h3 class="text-xl font-semibold text-on-surface mb-4">
+                Promotion Médicale
+              </h3>
+              <p class="text-on-surface-variant leading-relaxed text-sm">
+                Représentation éthique et scientifique de vos marques auprès des
+                professionnels de santé et des institutions.
+              </p>
+              <div class="mt-8 pt-6 border-t border-primary/5 w-full">
+                <a
+                  class="text-primary font-medium text-sm flex items-center gap-2 group/link"
+                  href="#"
+                >
+                  En savoir plus
+                  <span
+                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1"
+                    data-icon="arrow_forward"
+                    >arrow_forward</span
+                  >
+                </a>
+              </div>
+            </div>
+            <!-- Card 3: Conseil -->
+            <div
+              class="glass-card p-10 rounded-xl shadow-[0px_20px_40px_rgba(0,89,187,0.06)] flex flex-col items-start transition-all duration-500 hover:-translate-y-2 hover:bg-white/80 group"
+            >
+              <div
+                class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300"
+              >
+                <span
+                  class="material-symbols-outlined text-primary text-3xl"
+                  data-icon="insights"
+                  >insights</span
+                >
+              </div>
+              <h3 class="text-xl font-semibold text-on-surface mb-4">
+                Conseil &amp; Expertise
+              </h3>
+              <p class="text-on-surface-variant leading-relaxed text-sm">
+                Accompagnement stratégique et analyse de marché pour optimiser
+                votre pénétration sur le marché pharmaceutique local.
+              </p>
+              <div class="mt-8 pt-6 border-t border-primary/5 w-full">
+                <a
+                  class="text-primary font-medium text-sm flex items-center gap-2 group/link"
+                  href="#"
+                >
+                  En savoir plus
+                  <span
+                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1"
+                    data-icon="arrow_forward"
+                    >arrow_forward</span
+                  >
+                </a>
+              </div>
+            </div>
+            <!-- Card 4: Réglementaire -->
+            <div
+              class="glass-card p-10 rounded-xl shadow-[0px_20px_40px_rgba(0,89,187,0.06)] flex flex-col items-start transition-all duration-500 hover:-translate-y-2 hover:bg-white/80 group"
+            >
+              <div
+                class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300"
+              >
+                <span
+                  class="material-symbols-outlined text-primary text-3xl"
+                  data-icon="gavel"
+                  >gavel</span
+                >
+              </div>
+              <h3 class="text-xl font-semibold text-on-surface mb-4">
+                Soutien Réglementaire
+              </h3>
+              <p class="text-on-surface-variant leading-relaxed text-sm">
+                Assistance experte auprès des autorités de santé locales pour
+                vos homologations et votre mise en conformité.
+              </p>
+              <div class="mt-8 pt-6 border-t border-primary/5 w-full">
+                <a
+                  class="text-primary font-medium text-sm flex items-center gap-2 group/link"
+                  href="#"
+                >
+                  En savoir plus
+                  <span
+                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1"
+                    data-icon="arrow_forward"
+                    >arrow_forward</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- CTA Section (Asymmetric) -->
+      <section class="py-32 px-12 bg-surface overflow-hidden">
+        <div
+          class="max-w-screen-2xl mx-auto flex flex-col md:flex-row items-center gap-20"
+        >
+          <div class="w-full md:w-1/2">
+            <img
+              alt="Health Professionals Discussion"
+              class="rounded-xl shadow-2xl w-full h-[500px] object-cover"
+              data-alt="close up of medical professionals in lab coats discussing data on a tablet in a high-tech modern pharmaceutical facility"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMKPDhGowOgwW9UJbDNKYADwkDWlz9mS3t4FrDztEHkyRwv9Kx9TenRtpcA7xmox-CehPM5uxFURYu_LVWJ-aVFqVshUD0DcFYh_gUZ1k04av15eRyAtqZOQhc39VvsebzdQX6nAqratIEldBCVq8EwLlZvyfbAhI3KRSVmIHIZ0_b7b2UpgLiNwHAlu-Wcbco_FTyGE82dRVbXlo2q0u5Kcb8raytJW7unzcyUlU7WX34jkgDhOVwTVA1AsQEtgLZOP5FB0rTuOU"
+            />
+          </div>
+          <div class="w-full md:w-1/2">
+            <h2 class="text-3xl font-medium text-on-surface mb-6 leading-tight">
+              Vous avez un projet de développement en Afrique de l'Ouest ?
+            </h2>
+            <p class="text-on-surface-variant mb-10 leading-relaxed">
+              Notre expertise locale et notre rigueur internationale font de
+              nous le partenaire idéal pour votre expansion. Discutons ensemble
+              de vos besoins spécifiques.
+            </p>
+            <button
+              class="bg-primary hover:bg-primary-container text-on-primary px-10 py-5 rounded-xl font-semibold text-lg transition-all duration-300 transform active:scale-95 shadow-lg shadow-primary/20"
+            >
+              Contactez nos experts
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="bg-slate-50 dark:bg-slate-950 w-full py-16 px-12 border-t border-slate-200/50"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-screen-2xl mx-auto"
+      >
+        <div class="flex flex-col gap-4">
+          <div class="text-lg font-semibold text-blue-800">KEVOREH PHARMA</div>
+          <p class="font-['Manrope'] text-sm text-slate-500 leading-relaxed">
+            Leader de la distribution et de la promotion pharmaceutique en Côte
+            d'Ivoire.
+          </p>
+        </div>
+        <div class="flex flex-col gap-4">
+          <h4 class="text-slate-900 font-bold text-sm uppercase tracking-wider">
+            Services
+          </h4>
+          <nav class="flex flex-col gap-2">
+            <a
+              class="text-slate-500 hover:text-blue-600 transition-opacity opacity-80 hover:opacity-100 text-sm"
+              href="#"
+              >Logistique</a
+            >
+            <a
+              class="text-slate-500 hover:text-blue-600 transition-opacity opacity-80 hover:opacity-100 text-sm"
+              href="#"
+              >Promotion Médicale</a
+            >
+            <a
+              class="text-slate-500 hover:text-blue-600 transition-opacity opacity-80 hover:opacity-100 text-sm"
+              href="#"
+              >Affaires Réglementaires</a
+            >
+          </nav>
+        </div>
+        <div class="flex flex-col gap-4">
+          <h4 class="text-slate-900 font-bold text-sm uppercase tracking-wider">
+            Légal
+          </h4>
+          <nav class="flex flex-col gap-2">
+            <a
+              class="text-slate-500 hover:text-blue-600 transition-opacity opacity-80 hover:opacity-100 text-sm"
+              href="#"
+              >Privacy Policy</a
+            >
+            <a
+              class="text-slate-500 hover:text-blue-600 transition-opacity opacity-80 hover:opacity-100 text-sm"
+              href="#"
+              >Terms of Service</a
+            >
+            <a
+              class="text-slate-500 hover:text-blue-600 transition-opacity opacity-80 hover:opacity-100 text-sm"
+              href="#"
+              >Pharmacovigilance</a
+            >
+          </nav>
+        </div>
+        <div class="flex flex-col gap-4">
+          <h4 class="text-slate-900 font-bold text-sm uppercase tracking-wider">
+            Localisation
+          </h4>
+          <p class="text-slate-500 text-sm">
+            Abidjan, Côte d'Ivoire<br />
+            Zone Industrielle de Yopougon
+          </p>
+        </div>
+      </div>
+      <div
+        class="mt-16 pt-8 border-t border-slate-200/50 flex flex-col md:flex-row justify-between items-center max-w-screen-2xl mx-auto gap-4"
+      >
+        <p class="font-['Manrope'] text-sm text-slate-500">
+          © 2024 KEVOREH PHARMA. Precision in Care.
+        </p>
+        <div class="flex gap-6">
+          <span
+            class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer"
+            data-icon="language"
+            >language</span
+          >
+          <span
+            class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer"
+            data-icon="mail"
+            >mail</span
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
