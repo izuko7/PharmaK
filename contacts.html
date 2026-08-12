@@ -1,103 +1,77 @@
 <!doctype html>
-<html lang="fr">
+<html class="scroll-smooth" lang="fr">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Kevoreh Pharma - Contact Us</title>
+    <title>Contact | KEVOREH PHARMA</title>
+    <meta name="description" content="Contactez KEVOREH PHARMA à Abidjan, Côte d'Ivoire. Adresse, téléphone, email et formulaire pour vos demandes pharmaceutiques et partenariats." />
 
     <!-- ========================
-         DÉPENDANCES EXTERNES
+         POLICES GOOGLE FONTS
     ======================== -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-
-    <!-- Police principale : Manrope -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
     <!-- Icônes Material Symbols -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
       rel="stylesheet"
     />
 
     <!-- ========================
-         CONFIGURATION TAILWIND
-         (mode sombre supprimé)
+         TAILWIND CSS CDN
     ======================== -->
-    <script id="tailwind-config">
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#0c66c2",
-              "medical-blue": "#137fec",
-              "slate-heading": "#1e293b",
-              "slate-body": "#475569",
-              "background-light": "#f8fafc",
-            },
-            fontFamily: {
-              display: ["Manrope"],
-            },
-            borderRadius: {
-              DEFAULT: "0.5rem",
-              lg: "1rem",
-              xl: "1.5rem",
-              full: "9999px",
-            },
-          },
-        },
-      };
-    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
 
     <!-- ========================
          STYLES PERSONNALISÉS
     ======================== -->
     <style type="text/tailwindcss">
-      /* Effet verre givré — cartes et formulaire */
-      .glass {
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.4);
-        box-shadow:
-          0 4px 6px -1px rgba(0, 0, 0, 0.05),
-          0 2px 4px -1px rgba(0, 0, 0, 0.03);
-      }
-
-      /* Effet verre givré pour la navbar */
       .glass-nav {
-        background: rgba(255, 255, 255, 0.85);
+        background: rgba(255, 255, 255, 0.75);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.3);
       }
 
-      /* Ombre lumineuse sur le bouton d'envoi */
-      .glow-button {
-        box-shadow: 0 4px 14px 0 rgba(19, 127, 236, 0.3);
+      .glass-card {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
       }
 
-      /* Fond dégradé médical subtil */
-      .medical-gradient {
+      .text-gradient {
+        background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .bg-medical-gradient {
         background: radial-gradient(
           circle at top right,
-          #f1f5f9 0%,
+          #f0f9ff 0%,
+          #e0f2fe 50%,
           #f8fafc 100%
         );
       }
 
-      /* ===========================
-         MENU HAMBURGER MOBILE
-      =========================== */
+      .glow-button {
+        box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.3);
+      }
 
-      /* Bouton hamburger visible sur mobile */
+      .nav-item-dropdown:hover .dropdown-menu {
+        display: block;
+      }
+
       #hamburger-btn {
         display: flex;
       }
 
-      /* Menu mobile masqué par défaut */
       #mobile-menu {
         display: none;
         flex-direction: column;
@@ -106,12 +80,10 @@
         border-top: 1px solid rgba(0, 0, 0, 0.06);
       }
 
-      /* Classe ajoutée par JS pour ouvrir le menu */
       #mobile-menu.open {
         display: flex;
       }
 
-      /* Sur desktop (md+), masquer le hamburger et le menu mobile */
       @media (min-width: 768px) {
         #hamburger-btn {
           display: none;
@@ -120,27 +92,40 @@
           display: none !important;
         }
       }
-
-      /* Activation du sous-menu au survol */
-      .nav-item-dropdown:hover .dropdown-menu {
-        display: block;
-      }
     </style>
+
+    <!-- ========================
+         CONFIGURATION TAILWIND
+    ======================== -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563eb",
+              "medical-blue": "#0ea5e9",
+              "background-light": "#F8FAFC",
+            },
+            fontFamily: {
+              display: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.75rem",
+            },
+          },
+        },
+      };
+    </script>
   </head>
 
-  <!-- ========================
-       BODY — fond clair uniquement
-  ======================== -->
-  <body class="bg-background-light medical-gradient font-display text-slate-body min-h-screen">
+  <body class="font-display bg-background-light text-slate-800 antialiased">
 
     <!-- ============================================================
          BARRE DE NAVIGATION FIXE
-         - Logo + liens desktop + hamburger mobile
     ============================================================ -->
     <nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-7xl z-50 glass-nav rounded-2xl shadow-lg border border-white/40">
       <div class="px-6 h-16 flex items-center justify-between">
 
-        <!-- Logo -->
         <div class="flex items-center gap-2">
           <div class="w-9 h-9 bg-primary rounded-lg flex items-center justify-center shadow-md shadow-primary/20">
             <span class="material-symbols-outlined text-white text-xl">medical_services</span>
@@ -150,38 +135,31 @@
           </span>
         </div>
 
-        <!-- Liens desktop — masqués sur mobile -->
         <div class="hidden md:flex items-center gap-8 font-semibold text-sm">
-          <a class="hover:text-primary transition-colors text-slate-600" href="index.html">Home</a>
-          <a class="hover:text-primary transition-colors text-slate-600" href="About.html">About Us</a>
+          <a class="hover:text-primary transition-colors text-slate-600" href="index.html">Accueil</a>
+          <a class="hover:text-primary transition-colors text-slate-600" href="About.html">À propos</a>
 
-          <!-- Lien avec sous-menu déroulant -->
           <div class="nav-item-dropdown relative py-4">
             <a class="hover:text-primary transition-colors flex items-center gap-1 text-slate-600" href="Commitment.html">
-              Commitment
+              Engagement
               <span class="material-symbols-outlined text-sm">expand_more</span>
             </a>
-            <!-- Sous-menu -->
             <div class="dropdown-menu hidden absolute top-full left-0 w-56 glass-nav rounded-xl shadow-xl p-2 mt-1 border border-white/50">
-              <a class="block px-4 py-3 hover:bg-white/50 rounded-lg transition-all text-slate-700" href="#">Regulatory Compliance</a>
-              <a class="block px-4 py-3 hover:bg-white/50 rounded-lg transition-all text-slate-700" href="#">Ethics &amp; Values</a>
+              <a class="block px-4 py-3 hover:bg-white/50 rounded-lg transition-all text-slate-700" href="#">Conformité Réglementaire</a>
+              <a class="block px-4 py-3 hover:bg-white/50 rounded-lg transition-all text-slate-700" href="#">Éthique & Valeurs</a>
             </div>
           </div>
 
-          <a class="hover:text-primary transition-colors text-slate-600" href="#">Services</a>
-          <!-- Lien actif : page Contact -->
+          <a class="hover:text-primary transition-colors text-slate-600" href="Service.html">Services</a>
           <a class="text-primary border-b-2 border-primary" href="contacts.html">Contact</a>
         </div>
 
-        <!-- Boutons à droite : langue + hamburger -->
         <div class="flex items-center gap-3">
-          <!-- Sélecteur de langue -->
           <button class="flex items-center justify-center rounded-lg h-10 px-4 border border-gray-200 bg-white/50 text-[#0d121b] text-sm font-bold tracking-[0.015em] hover:bg-white transition-all backdrop-blur-sm">
             <span class="material-symbols-outlined text-sm mr-2">language</span>
             <span>FR / EN</span>
           </button>
 
-          <!-- Bouton hamburger — visible uniquement sur mobile -->
           <button
             id="hamburger-btn"
             class="items-center justify-center p-2 rounded-lg hover:bg-white/50 transition-colors"
@@ -194,256 +172,251 @@
         </div>
       </div>
 
-      <!-- ============================================================
-           MENU MOBILE — s'affiche quand le hamburger est cliqué
-      ============================================================ -->
       <div id="mobile-menu" role="navigation" aria-label="Menu mobile">
-        <a class="py-3 px-2 text-sm font-semibold text-slate-600 hover:text-primary transition-colors border-b border-gray-100" href="index.html">Home</a>
-        <a class="py-3 px-2 text-sm font-semibold text-slate-600 hover:text-primary transition-colors border-b border-gray-100" href="About.html">About Us</a>
-        <a class="py-3 px-2 text-sm font-semibold text-slate-600 hover:text-primary transition-colors border-b border-gray-100" href="#">Commitment</a>
-        <a class="py-3 px-2 text-sm font-semibold text-slate-600 hover:text-primary transition-colors border-b border-gray-100" href="#">Services</a>
+        <a class="py-3 px-2 text-sm font-semibold text-slate-600 hover:text-primary transition-colors border-b border-gray-100" href="index.html">Accueil</a>
+        <a class="py-3 px-2 text-sm font-semibold text-slate-600 hover:text-primary transition-colors border-b border-gray-100" href="About.html">À propos</a>
+        <a class="py-3 px-2 text-sm font-semibold text-slate-600 hover:text-primary transition-colors border-b border-gray-100" href="Commitment.html">Engagement</a>
+        <a class="py-3 px-2 text-sm font-semibold text-slate-600 hover:text-primary transition-colors border-b border-gray-100" href="Service.html">Services</a>
         <a class="py-3 px-2 text-sm font-semibold text-primary border-b border-gray-100">Contact</a>
       </div>
     </nav>
 
     <!-- ============================================================
-         CONTENU PRINCIPAL
+         SECTION HERO
     ============================================================ -->
-    <main class="flex-1 pt-28 sm:pt-32">
+    <section class="pt-40 sm:pt-48 pb-12 sm:pb-16 px-6 relative overflow-hidden bg-medical-gradient">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[800px] h-[300px] sm:h-[400px] bg-blue-100/50 blur-[120px] -z-10 rounded-full"></div>
 
-      <!-- ============================================================
-           SECTION HERO — En-tête de la page Contact
-      ============================================================ -->
-      <div class="relative px-4 py-12 sm:py-20 md:py-24">
-        <!-- Image de fond décorativeavec opacité réduite -->
+      <div class="max-w-7xl mx-auto text-center">
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 sm:mb-8 tracking-tight text-slate-900 leading-tight">
+          Contactez-<span class="text-gradient">Nous</span>
+        </h1>
+
+        <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 leading-relaxed">
+          Vous avez des questions sur nos solutions pharmaceutiques ? Notre équipe à Abidjan est là pour accompagner les professionnels de santé et nos partenaires à travers le monde.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION INFORMATIONS DE CONTACT
+    ============================================================ -->
+    <section class="py-12 sm:py-16 px-6">
+      <div class="mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+
+        <!-- Carte Adresse -->
+        <div class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col items-center text-center group transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border border-white/60">
+          <div class="w-14 h-14 rounded-full bg-blue-100 text-primary flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
+            <span class="material-symbols-outlined text-2xl sm:text-3xl">location_on</span>
+          </div>
+          <h3 class="text-lg font-bold mb-2 text-slate-900">Localisation</h3>
+          <p class="text-slate-600 text-sm leading-relaxed font-medium">
+            Route d'Abbata, Carrefour Super Marché AB CENTER<br />
+            Abidjan, Côte d'Ivoire
+          </p>
+        </div>
+
+        <!-- Carte Téléphone -->
+        <div class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col items-center text-center group transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border border-white/60">
+          <div class="w-14 h-14 rounded-full bg-blue-100 text-primary flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
+            <span class="material-symbols-outlined text-2xl sm:text-3xl">call</span>
+          </div>
+          <h3 class="text-lg font-bold mb-2 text-slate-900">Téléphone</h3>
+          <p class="text-slate-600 text-sm leading-relaxed font-medium">
+            +225 07-0908-4190<br />
+            +225 07-0858-4243
+          </p>
+        </div>
+
+        <!-- Carte Email -->
+        <div class="glass-card p-6 sm:p-8 rounded-2xl flex flex-col items-center text-center group transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border border-white/60">
+          <div class="w-14 h-14 rounded-full bg-blue-100 text-primary flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
+            <span class="material-symbols-outlined text-2xl sm:text-3xl">mail</span>
+          </div>
+          <h3 class="text-lg font-bold mb-2 text-slate-900">Email</h3>
+          <p class="text-slate-600 text-sm leading-relaxed font-medium">
+            infos@kevoreh-pharma.com
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION FORMULAIRE DE CONTACT
+    ============================================================ -->
+    <section class="px-6 pb-16 sm:pb-24">
+      <div class="mx-auto max-w-3xl bg-white p-8 sm:p-12 rounded-3xl shadow-xl border border-slate-100">
+        <h2 class="text-2xl sm:text-3xl font-extrabold mb-2 text-slate-900 text-center">
+          Envoyez-nous un message
+        </h2>
+        <p class="text-slate-500 text-sm mb-8 text-center">Notre équipe vous répondra dans les plus brefs délais.</p>
+
+        <form class="space-y-5 sm:space-y-6" onsubmit="return false;">
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+            <label class="flex flex-col gap-2">
+              <span class="text-sm font-bold text-slate-700">Nom complet</span>
+              <input
+                class="rounded-xl border border-slate-200 bg-slate-50 h-12 sm:h-14 px-4 text-slate-900 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition-all placeholder:text-slate-400 text-sm sm:text-base"
+                placeholder="Votre nom..."
+                type="text"
+              />
+            </label>
+
+            <label class="flex flex-col gap-2">
+              <span class="text-sm font-bold text-slate-700">Email</span>
+              <input
+                class="rounded-xl border border-slate-200 bg-slate-50 h-12 sm:h-14 px-4 text-slate-900 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition-all placeholder:text-slate-400 text-sm sm:text-base"
+                placeholder="Votre adresse email..."
+                type="email"
+              />
+            </label>
+          </div>
+
+          <label class="flex flex-col gap-2">
+            <span class="text-sm font-bold text-slate-700">Sujet</span>
+            <input
+              class="rounded-xl border border-slate-200 bg-slate-50 h-12 sm:h-14 px-4 text-slate-900 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition-all placeholder:text-slate-400 text-sm sm:text-base"
+              placeholder="Comment pouvons-nous vous aider ?"
+              type="text"
+            />
+          </label>
+
+          <label class="flex flex-col gap-2">
+            <span class="text-sm font-bold text-slate-700">Message</span>
+            <textarea
+              class="rounded-xl border border-slate-200 bg-slate-50 p-4 text-slate-900 focus:border-primary focus:ring-2 focus:ring-primary outline-none transition-all placeholder:text-slate-400 resize-none text-sm sm:text-base"
+              placeholder="Dites-nous en plus sur votre demande..."
+              rows="5"
+            ></textarea>
+          </label>
+
+          <div class="flex justify-center pt-2">
+            <button
+              type="submit"
+              class="w-full md:w-auto min-w-[250px] glow-button bg-primary hover:bg-blue-700 active:scale-95 text-white font-bold h-12 sm:h-14 px-8 rounded-xl transition-all text-sm sm:text-base flex items-center justify-center gap-2"
+            >
+              Envoyer le message
+              <span class="material-symbols-outlined text-xl">send</span>
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION CARTE / MAP
+    ============================================================ -->
+    <section class="px-6 pb-16 sm:pb-24">
+      <div class="mx-auto max-w-7xl h-[350px] sm:h-[450px] md:h-[500px] rounded-3xl overflow-hidden glass-card relative border border-white/60 shadow-lg">
+
+        <!-- Image de fond représentant la carte -->
         <div
-          class="absolute inset-0 opacity-5 pointer-events-none"
+          class="absolute inset-0 bg-slate-200"
           style="
-            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAlv6RQ6pSmVLaFFnfwEjM3VJa8iaoZdq2O60aQogQK7X8g1epbALsiBMlbt4ERCRd_r8ROuGl4j4tIAqnXEr4JNjcp5AJ949HqB90pAxWWZEfhM_qFFSJHITHhTmYvjECWhJF-7uZdV8lUg7Fee1L1zNXAk3_3iwF1QR6_KkX5hu-mek4Wj_rGYLk11zAIVIowX4_ZcpiMREqZLzxB7M2-NOqrjNFZgVVQqwOBFQfagmzl2gIurHD51PVvFLhjj-bb58tNpYGEvXM');
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAm0bW3JSMZHcoZeCKL1O_mWO1NGXoTI1FQuBqrBW3OwnRS_qlzVTxe7NLpT8XKAh39tFjJ-lB4FsY4HX4D_o_dbho1C1H8OF1v1E_eYG0c5T5jScIOgPZNpLWci-rhmEKsW8ZFpFxIyDJvvg4mMit1mdkVVuzGvpfKFmolQX9C3oBBxBrq7dMQPRpx57hpSpNKP3E7ZiDpZYcsDWl4SgTrRxVpCONxn7EeMmIUyPfS_Qy50Ebej8ZxQSgDM8TUQZXaeXvqJ_Txljw');
             background-size: cover;
             background-position: center;
           "
         ></div>
 
-        <!-- Titre et sous-titre centrés -->
-        <div class="relative z-10 mx-auto max-w-[960px] text-center">
-          <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 sm:mb-6 text-slate-heading">
-            Contact Us
-          </h1>
-          <p class="text-base sm:text-lg text-slate-body max-w-2xl mx-auto leading-relaxed">
-            Have questions about our pharmaceutical solutions? Our team in
-            Abidjan is here to support healthcare professionals and partners
-            across the globe.
-          </p>
+        <!-- Marqueur de localisation centré -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+          <div class="bg-white/90 backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg mb-2 flex items-center gap-2 border border-primary/30 shadow-lg">
+            <span class="material-symbols-outlined text-primary text-sm">medical_information</span>
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-900">Siège de KEVOREH PHARMA</span>
+          </div>
+
+          <div class="relative">
+            <div class="absolute inset-0 animate-ping bg-primary rounded-full opacity-40"></div>
+            <div class="w-5 h-5 sm:w-6 sm:h-6 bg-primary rounded-full border-4 border-white relative z-10 shadow-md"></div>
+          </div>
         </div>
+
+        <!-- Boutons de zoom (décoratifs) -->
+        <div class="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 flex flex-col gap-2">
+          <button class="w-9 h-10 sm:w-10 sm:h-10 glass-nav rounded-lg flex items-center justify-center hover:bg-white text-slate-900 transition-colors shadow-sm">
+            <span class="material-symbols-outlined">add</span>
+          </button>
+          <button class="w-9 h-10 sm:w-10 sm:h-10 glass-nav rounded-lg flex items-center justify-center hover:bg-white text-slate-900 transition-colors shadow-sm">
+            <span class="material-symbols-outlined">remove</span>
+          </button>
+        </div>
+
       </div>
-
-      <!-- ============================================================
-           SECTION FORMULAIRE DE CONTACT
-           - Champs Nom, Email, Sujet, Message
-           - Bouton d'envoi avec effet glow
-      ============================================================ -->
-      <section class="px-4 pb-16 sm:pb-20">
-        <div class="mx-auto max-w-[800px] glass rounded-xl p-6 sm:p-8 md:p-12">
-          <h2 class="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-slate-heading">
-            Send us a Message
-          </h2>
-
-          <form class="space-y-5 sm:space-y-6" onsubmit="return false;">
-
-            <!-- Ligne Nom + Email (2 colonnes sur md+, 1 colonne sur mobile) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-
-              <!-- Champ Nom -->
-              <label class="flex flex-col gap-2">
-                <span class="text-sm font-bold text-slate-body">Name</span>
-                <input
-                  class="rounded-lg border border-slate-200 bg-white/50 h-12 sm:h-14 px-4 text-slate-heading focus:border-medical-blue focus:ring-1 focus:ring-medical-blue outline-none transition-all placeholder:text-slate-400 text-sm sm:text-base"
-                  placeholder="John Doe"
-                  type="text"
-                />
-              </label>
-
-              <!-- Champ Email -->
-              <label class="flex flex-col gap-2">
-                <span class="text-sm font-bold text-slate-body">Email</span>
-                <input
-                  class="rounded-lg border border-slate-200 bg-white/50 h-12 sm:h-14 px-4 text-slate-heading focus:border-medical-blue focus:ring-1 focus:ring-medical-blue outline-none transition-all placeholder:text-slate-400 text-sm sm:text-base"
-                  placeholder="john@example.com"
-                  type="email"
-                />
-              </label>
-            </div>
-
-            <!-- Champ Sujet -->
-            <label class="flex flex-col gap-2">
-              <span class="text-sm font-bold text-slate-body">Subject</span>
-              <input
-                class="rounded-lg border border-slate-200 bg-white/50 h-12 sm:h-14 px-4 text-slate-heading focus:border-medical-blue focus:ring-1 focus:ring-medical-blue outline-none transition-all placeholder:text-slate-400 text-sm sm:text-base"
-                placeholder="How can we help you?"
-                type="text"
-              />
-            </label>
-
-            <!-- Champ Message -->
-            <label class="flex flex-col gap-2">
-              <span class="text-sm font-bold text-slate-body">Message</span>
-              <textarea
-                class="rounded-lg border border-slate-200 bg-white/50 p-4 text-slate-heading focus:border-medical-blue focus:ring-1 focus:ring-medical-blue outline-none transition-all placeholder:text-slate-400 resize-none text-sm sm:text-base"
-                placeholder="Tell us more about your inquiry..."
-                rows="5"
-              ></textarea>
-            </label>
-
-            <!-- Bouton d'envoi -->
-            <button
-              type="submit"
-              class="w-full md:w-auto min-w-[200px] glow-button bg-medical-blue hover:bg-blue-700 active:scale-95 text-white font-bold h-12 sm:h-14 px-8 rounded-lg transition-all text-sm sm:text-base"
-            >
-              Send Message
-            </button>
-
-          </form>
-        </div>
-      </section>
-
-      <!-- ============================================================
-           SECTION INFORMATIONS DE CONTACT
-           - 3 cartes : Adresse, Téléphone, Email
-           - Grille 1 col mobile → 3 col desktop
-      ============================================================ -->
-      <section class="px-4 pb-16 sm:pb-20">
-        <div class="mx-auto max-w-[1000px] grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
-
-          <!-- Carte Adresse -->
-          <div class="glass p-6 sm:p-8 rounded-xl flex flex-col items-center text-center group hover:border-medical-blue/30 transition-all">
-            <div class="size-12 sm:size-14 rounded-full bg-blue-50 text-medical-blue flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
-              <span class="material-symbols-outlined text-xl sm:text-2xl">location_on</span>
-            </div>
-            <h3 class="text-base sm:text-lg font-bold mb-2 text-slate-heading">Location</h3>
-            <p class="text-slate-body text-sm leading-relaxed font-medium">
-              Rue des Jardins, II Plateaux<br />
-              Abidjan, Côte d'Ivoire
-            </p>
-          </div>
-
-          <!-- Carte Téléphone -->
-          <div class="glass p-6 sm:p-8 rounded-xl flex flex-col items-center text-center group hover:border-medical-blue/30 transition-all">
-            <div class="size-12 sm:size-14 rounded-full bg-blue-50 text-medical-blue flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
-              <span class="material-symbols-outlined text-xl sm:text-2xl">call</span>
-            </div>
-            <h3 class="text-base sm:text-lg font-bold mb-2 text-slate-heading">Phone</h3>
-            <p class="text-slate-body text-sm leading-relaxed font-medium">
-              +225 27 22 40 00 00<br />
-              Mon - Fri, 8am - 6pm
-            </p>
-          </div>
-
-          <!-- Carte Email -->
-          <div class="glass p-6 sm:p-8 rounded-xl flex flex-col items-center text-center group hover:border-medical-blue/30 transition-all">
-            <div class="size-12 sm:size-14 rounded-full bg-blue-50 text-medical-blue flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm">
-              <span class="material-symbols-outlined text-xl sm:text-2xl">mail</span>
-            </div>
-            <h3 class="text-base sm:text-lg font-bold mb-2 text-slate-heading">Email</h3>
-            <p class="text-slate-body text-sm leading-relaxed font-medium">
-              contact@kevoreh.com<br />
-              info@kevoreh.com
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ============================================================
-           SECTION CARTE / MAP
-           - Image de fond simulant une carte géographique
-           - Point animé indiquant le siège social
-      ============================================================ -->
-      <section class="px-4 pb-16 sm:pb-20">
-        <div class="mx-auto max-w-[1280px] h-[350px] sm:h-[450px] md:h-[500px] rounded-xl overflow-hidden glass relative border-slate-200">
-
-          <!-- Image de fond représentant la carte -->
-          <div
-            class="absolute inset-0 bg-[#e5e7eb]"
-            style="
-              background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAm0bW3JSMZHcoZeCKL1O_mWO1NGXoTI1FQuBqrBW3OwnRS_qlzVTxe7NLpT8XKAh39tFjJ-lB4FsY4HX4D_o_dbho1C1H8OF1v1E_eYG0c5T5jScIOgPZNpLWci-rhmEKsW8ZFpFxIyDJvvg4mMit1mdkVVuzGvpfKFmolQX9C3oBBxBrq7dMQPRpx57hpSpNKP3E7ZiDpZYcsDWl4SgTrRxVpCONxn7EeMmIUyPfS_Qy50Ebej8ZxQSgDM8TUQZXaeXvqJ_Txljw');
-              background-size: cover;
-              background-position: center;
-            "
-          ></div>
-
-          <!-- Marqueur de localisation centré -->
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-            <!-- Étiquette du siège -->
-            <div class="bg-white/90 backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg mb-2 flex items-center gap-2 border border-medical-blue/30 shadow-lg">
-              <span class="material-symbols-outlined text-medical-blue text-sm">medical_information</span>
-              <span class="text-xs font-bold uppercase tracking-wider text-slate-heading">Kevoreh Headquarters</span>
-            </div>
-
-            <!-- Point animé (ping) -->
-            <div class="relative">
-              <div class="absolute inset-0 animate-ping bg-medical-blue rounded-full opacity-40"></div>
-              <div class="size-5 sm:size-6 bg-medical-blue rounded-full border-4 border-white relative z-10 shadow-md"></div>
-            </div>
-          </div>
-
-          <!-- Boutons de zoom (décoratifs) -->
-          <div class="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 flex flex-col gap-2">
-            <button class="size-9 sm:size-10 glass rounded-lg flex items-center justify-center hover:bg-white text-slate-heading transition-colors">
-              <span class="material-symbols-outlined">add</span>
-            </button>
-            <button class="size-9 sm:size-10 glass rounded-lg flex items-center justify-center hover:bg-white text-slate-heading transition-colors">
-              <span class="material-symbols-outlined">remove</span>
-            </button>
-          </div>
-
-        </div>
-      </section>
-
-    </main>
+    </section>
 
     <!-- ============================================================
          FOOTER
-         - Logo + copyright + icônes réseaux
-         - Disposition en colonne sur mobile, ligne sur desktop
     ============================================================ -->
-    <footer class="border-t border-slate-200 bg-white/50 py-10 sm:py-12 px-6">
-      <div class="mx-auto max-w-[1280px] flex flex-col md:flex-row justify-between items-center gap-6 sm:gap-8">
+    <footer class="bg-slate-950 text-white pt-16 sm:pt-20 pb-10 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 mb-12 sm:mb-16">
 
-        <!-- Logo footer -->
-        <div class="flex items-center gap-3">
-          <span class="material-symbols-outlined text-medical-blue">medical_services</span>
-          <span class="font-bold text-slate-heading">KEVOREH PHARMA</span>
+          <div class="col-span-1 sm:col-span-2">
+            <div class="flex items-center gap-2 mb-6 sm:mb-8">
+              <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+                <span class="material-symbols-outlined text-white text-xl">medical_services</span>
+              </div>
+              <span class="font-extrabold text-xl sm:text-2xl tracking-tight">KEVOREH PHARMA</span>
+            </div>
+            <p class="text-slate-400 max-w-sm mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
+              Élever les normes pharmaceutiques en Côte d'Ivoire grâce à une représentation experte et des solutions de laboratoire premium.
+            </p>
+            <div class="flex gap-4">
+              <a class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-primary transition-all hover:-translate-y-1" href="#">
+                <span class="material-symbols-outlined">public</span>
+              </a>
+              <a class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-primary transition-all hover:-translate-y-1" href="mailto:infos@kevoreh-pharma.com">
+                <span class="material-symbols-outlined">alternate_email</span>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="font-bold mb-6 sm:mb-8 uppercase text-xs tracking-[0.2em] text-blue-400">Liens Rapides</h4>
+            <ul class="space-y-3 sm:space-y-4 text-slate-400 text-sm">
+              <li><a class="hover:text-white transition-colors flex items-center gap-2" href="About.html"><span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span>À propos</a></li>
+              <li><a class="hover:text-white transition-colors flex items-center gap-2" href="Service.html"><span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span>Services</a></li>
+              <li><a class="hover:text-white transition-colors flex items-center gap-2" href="Commitment.html"><span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span>Engagement</a></li>
+              <li><a class="hover:text-white transition-colors flex items-center gap-2" href="contacts.html"><span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span>Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-bold mb-6 sm:mb-8 uppercase text-xs tracking-[0.2em] text-blue-400">Nous Contacter</h4>
+            <ul class="space-y-4 sm:space-y-6 text-slate-400 text-sm">
+              <li class="flex items-start gap-3 sm:gap-4">
+                <span class="material-symbols-outlined text-primary">location_on</span>
+                <span>Route d'Abbata, Carrefour Super Marché AB CENTER<br />Abidjan, Côte d'Ivoire</span>
+              </li>
+              <li class="flex items-center gap-3 sm:gap-4">
+                <span class="material-symbols-outlined text-primary">call</span>
+                <span>+225 07-0908-4190 / 07-0858-4243</span>
+              </li>
+              <li class="flex items-center gap-3 sm:gap-4">
+                <span class="material-symbols-outlined text-primary">mail</span>
+                <span>infos@kevoreh-pharma.com</span>
+              </li>
+            </ul>
+          </div>
+
         </div>
 
-        <!-- Copyright -->
-        <div class="text-slate-body text-xs sm:text-sm font-medium text-center">
-          © 2024 Kevoreh Pharma. All rights reserved.
+        <div class="border-t border-white/10 pt-8 text-center text-slate-500 text-xs sm:text-sm">
+          © 2024 KEVOREH PHARMA. Conçu pour l'excellence pharmaceutique.
         </div>
-
-        <!-- Icônes réseaux sociaux -->
-        <div class="flex gap-5 sm:gap-6">
-          <a class="text-slate-body hover:text-medical-blue transition-colors" href="#">
-            <span class="material-symbols-outlined">public</span>
-          </a>
-          <a class="text-slate-body hover:text-medical-blue transition-colors" href="#">
-            <span class="material-symbols-outlined">share</span>
-          </a>
-          <a class="text-slate-body hover:text-medical-blue transition-colors" href="#">
-            <span class="material-symbols-outlined">hub</span>
-          </a>
-        </div>
-
       </div>
     </footer>
 
     <!-- ============================================================
          JAVASCRIPT
-         - Gestion du menu hamburger mobile
     ============================================================ -->
     <script>
       /**
-       * Ouvre ou ferme le menu mobile en basculant la classe "open".
+       * Bascule l'ouverture/fermeture du menu mobile.
        * Met à jour aria-expanded pour l'accessibilité.
        */
       function toggleMobileMenu() {

@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Kevoreh Pharma - Home Page</title>
+    <title>Kevoreh Pharma | Agence de promotion pharmaceutique en Côte d'Ivoire</title>
+    <meta name="description" content="Kevoreh Pharma est une agence de représentation et de promotion de produits pharmaceutiques basée à Abidjan. Spécialistes de l'enregistrement, l'importation et la distribution." />
 
     <!-- ========================
          DÉPENDANCES EXTERNES
@@ -24,7 +25,6 @@
 
     <!-- ========================
          CONFIGURATION TAILWIND
-         (mode sombre supprimé)
     ======================== -->
     <script id="tailwind-config">
       tailwind.config = {
@@ -60,7 +60,6 @@
         border: 1px solid rgba(255, 255, 255, 0.35);
       }
 
-      /* Paramètres par défaut des icônes Material */
       .material-symbols-outlined {
         font-variation-settings:
           "FILL" 0,
@@ -69,23 +68,14 @@
           "opsz" 24;
       }
 
-      /* ===========================
-         MENU DÉROULANT (DROPDOWN)
-      =========================== */
       .nav-item-dropdown:hover .dropdown-menu {
         display: block;
       }
 
-      /* ===========================
-         MENU HAMBURGER MOBILE
-      =========================== */
-
-      /* Bouton hamburger : visible uniquement sur mobile */
       #hamburger-btn {
         display: flex;
       }
 
-      /* Menu mobile : caché par défaut */
       #mobile-menu {
         display: none;
         flex-direction: column;
@@ -94,12 +84,10 @@
         border-top: 1px solid rgba(0, 0, 0, 0.06);
       }
 
-      /* Menu mobile ouvert */
       #mobile-menu.open {
         display: flex;
       }
 
-      /* Sur desktop (md+), on cache le bouton hamburger et le menu mobile */
       @media (min-width: 768px) {
         #hamburger-btn {
           display: none;
@@ -109,9 +97,6 @@
         }
       }
 
-      /* ===========================
-         HERO : IMAGE RESPONSIVE
-      =========================== */
       .hero-bg {
         background-image:
           linear-gradient(
@@ -125,7 +110,6 @@
         background-repeat: no-repeat;
       }
 
-      /* Sur petits écrans, dégradé plus prononcé pour la lisibilité */
       @media (max-width: 640px) {
         .hero-bg {
           background-image:
@@ -140,20 +124,12 @@
     </style>
   </head>
 
-  <!-- ========================
-       BODY (fond clair uniquement)
-  ======================== -->
   <body class="bg-background-light font-display text-[#0d121b]">
 
-    <!-- ============================================================
-         BARRE DE NAVIGATION FIXE
-         - Effet verre givré
-         - Logo + liens desktop + bouton hamburger mobile
-    ============================================================ -->
+    <!-- BARRE DE NAVIGATION -->
     <nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-7xl z-50 glass-nav rounded-2xl shadow-lg border border-white/40">
       <div class="px-6 h-16 flex items-center justify-between">
 
-        <!-- Logo -->
         <div class="flex items-center gap-2">
           <div class="w-9 h-9 bg-primary rounded-lg flex items-center justify-center shadow-md shadow-primary/20">
             <span class="material-symbols-outlined text-white text-xl">medical_services</span>
@@ -163,21 +139,18 @@
           </span>
         </div>
 
-        <!-- Liens de navigation — affichés uniquement sur desktop (md+) -->
         <div class="hidden md:flex items-center gap-8 font-semibold text-sm">
-          <a class="text-primary border-b-2 border-primary" href="index.html">Home</a>
-          <a class="hover:text-primary transition-colors text-slate-600" href="About.html">About Us</a>
+          <a class="text-primary border-b-2 border-primary" href="index.html">Accueil</a>
+          <a class="hover:text-primary transition-colors text-slate-600" href="About.html">À propos</a>
 
-          <!-- Lien avec sous-menu déroulant -->
           <div class="nav-item-dropdown relative py-4">
             <a class="hover:text-primary transition-colors flex items-center gap-1 text-slate-600" href="Commitment.html">
-              Commitment
+              Engagement
               <span class="material-symbols-outlined text-sm">expand_more</span>
             </a>
-            <!-- Sous-menu -->
             <div class="dropdown-menu hidden absolute top-full left-0 w-56 glass-nav rounded-xl shadow-xl p-2 mt-1 border border-white/50">
-              <a class="block px-4 py-3 hover:bg-white/50 rounded-lg transition-all text-slate-700" href="#">Regulatory Compliance</a>
-              <a class="block px-4 py-3 hover:bg-white/50 rounded-lg transition-all text-slate-700" href="#">Ethics &amp; Values</a>
+              <a class="block px-4 py-3 hover:bg-white/50 rounded-lg transition-all text-slate-700" href="#">Conformité Réglementaire</a>
+              <a class="block px-4 py-3 hover:bg-white/50 rounded-lg transition-all text-slate-700" href="#">Éthique & Valeurs</a>
             </div>
           </div>
 
@@ -185,15 +158,12 @@
           <a class="hover:text-primary transition-colors text-slate-600" href="contacts.html">Contact</a>
         </div>
 
-        <!-- Boutons à droite : langue + hamburger -->
         <div class="flex items-center gap-3">
-          <!-- Sélecteur de langue -->
           <button class="flex items-center justify-center rounded-lg h-10 px-4 border border-gray-200 bg-white/50 text-[#0d121b] text-sm font-bold tracking-[0.015em] hover:bg-white transition-all backdrop-blur-sm">
             <span class="material-symbols-outlined text-sm mr-2">language</span>
             <span>FR / EN</span>
           </button>
 
-          <!-- Bouton hamburger — visible uniquement sur mobile -->
           <button
             id="hamburger-btn"
             class="items-center justify-center p-2 rounded-lg hover:bg-white/50 transition-colors"
@@ -206,57 +176,42 @@
         </div>
       </div>
 
-      <!-- ============================================================
-           MENU MOBILE : liens visibles quand le hamburger est cliqué
-      ============================================================ -->
       <div id="mobile-menu" role="navigation" aria-label="Menu mobile">
-        <a class="py-3 px-2 text-sm font-semibold text-primary border-b border-gray-100" href="index.html">Home</a>
-        <a class="py-3 px-2 text-sm font-semibold text-slate-700 hover:text-primary transition-colors border-b border-gray-100" href="About.html">About Us</a>
-        <a class="py-3 px-2 text-sm font-semibold text-slate-700 hover:text-primary transition-colors border-b border-gray-100" href="#">Commitment</a>
+        <a class="py-3 px-2 text-sm font-semibold text-primary border-b border-gray-100" href="index.html">Accueil</a>
+        <a class="py-3 px-2 text-sm font-semibold text-slate-700 hover:text-primary transition-colors border-b border-gray-100" href="About.html">À propos</a>
+        <a class="py-3 px-2 text-sm font-semibold text-slate-700 hover:text-primary transition-colors border-b border-gray-100" href="#">Engagement</a>
         <a class="py-3 px-2 text-sm font-semibold text-slate-700 hover:text-primary transition-colors border-b border-gray-100" href="#">Services</a>
         <a class="py-3 px-2 text-sm font-semibold text-slate-700 hover:text-primary transition-colors" href="#">Contact</a>
       </div>
     </nav>
 
-    <!-- ============================================================
-         SECTION HERO
-         - Grande image de fond avec dégradé
-         - Titre, description et boutons d'appel à l'action
-    ============================================================ -->
+    <!-- SECTION HERO -->
     <section class="relative pt-32 pb-12 px-4 md:px-40">
       <div class="@container max-w-[1280px] mx-auto">
         <div class="@[480px]:p-4">
-          <!-- Conteneur avec image de fond responsive -->
           <div class="hero-bg flex min-h-[480px] sm:min-h-[560px] flex-col gap-6 @[480px]:gap-8 rounded-xl items-start justify-end px-6 pb-10 @[480px]:px-12 shadow-2xl relative overflow-hidden">
 
-            <!-- Texte principal du héro -->
             <div class="flex flex-col gap-4 text-left max-w-2xl">
-              <!-- Badge animé -->
               <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary border border-primary/30 w-fit">
                 <span class="size-2 rounded-full bg-primary animate-pulse"></span>
-                <span class="text-xs font-bold tracking-widest uppercase">Global Standards</span>
+                <span class="text-xs font-bold tracking-widest uppercase">Normes Internationales</span>
               </div>
 
-              <!-- Titre principal -->
               <h1 class="text-white text-3xl sm:text-4xl @[480px]:text-6xl font-black leading-tight tracking-[-0.033em]">
-                Excellence in Pharmaceutical Solutions
+                Excellence en Solutions Pharmaceutiques
               </h1>
 
-              <!-- Sous-titre descriptif -->
               <p class="text-white/90 text-sm sm:text-base @[480px]:text-lg font-normal leading-relaxed">
-                Leading the way in R&amp;D and pharmaceutical distribution in
-                Abidjan, Côte d'Ivoire. Dedicated to ensuring global health
-                standards and accessibility across West Africa.
+                Leader dans l'enregistrement, la représentation et la distribution de produits pharmaceutiques à Abidjan, Côte d'Ivoire. Dédiés à garantir la santé et le bien-être à travers l'Afrique de l'Ouest.
               </p>
             </div>
 
-            <!-- Boutons d'action -->
             <div class="flex flex-wrap gap-3 mt-2">
               <button class="flex min-w-[130px] cursor-pointer items-center justify-center rounded-lg h-11 px-5 bg-primary text-white text-sm font-bold hover:bg-blue-600 transition-colors">
-                <span class="truncate">Learn More</span>
+                <span class="truncate">En savoir plus</span>
               </button>
               <button class="flex min-w-[130px] cursor-pointer items-center justify-center rounded-lg h-11 px-5 bg-white/10 backdrop-blur-md text-white border border-white/20 text-sm font-bold hover:bg-white/20 transition-colors">
-                <span class="truncate">Our Products</span>
+                <span class="truncate">Nos Services</span>
               </button>
             </div>
 
@@ -265,85 +220,67 @@
       </div>
     </section>
 
-    <!-- ============================================================
-         SECTION STATISTIQUES
-         - 4 chiffres clés affichés en grille responsive
-    ============================================================ -->
+    <!-- SECTION STATISTIQUES -->
     <section class="px-4 md:px-40 py-10">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-[1280px] mx-auto">
 
-        <!-- Stat : Années d'expérience -->
         <div class="bg-white p-5 sm:p-6 rounded-xl border border-gray-100 text-center shadow-sm">
-          <p class="text-primary text-2xl sm:text-3xl font-black">15+</p>
-          <p class="text-[#4c669a] text-xs sm:text-sm font-medium">Years Experience</p>
+          <p class="text-primary text-2xl sm:text-3xl font-black">5+</p>
+          <p class="text-[#4c669a] text-xs sm:text-sm font-medium">Ans d'expérience</p>
         </div>
 
-        <!-- Stat : Catalogue produits -->
-        <div class="bg-white p-5 sm:p-6 rounded-xl border border-gray-100 text-center shadow-sm">
-          <p class="text-primary text-2xl sm:text-3xl font-black">500+</p>
-          <p class="text-[#4c669a] text-xs sm:text-sm font-medium">Product Catalog</p>
-        </div>
-
-        <!-- Stat : Support continu -->
-        <div class="bg-white p-5 sm:p-6 rounded-xl border border-gray-100 text-center shadow-sm">
-          <p class="text-primary text-2xl sm:text-3xl font-black">24/7</p>
-          <p class="text-[#4c669a] text-xs sm:text-sm font-medium">Support Delivery</p>
-        </div>
-
-        <!-- Stat : Certifié qualité -->
         <div class="bg-white p-5 sm:p-6 rounded-xl border border-gray-100 text-center shadow-sm">
           <p class="text-primary text-2xl sm:text-3xl font-black">100%</p>
-          <p class="text-[#4c669a] text-xs sm:text-sm font-medium">Quality Certified</p>
+          <p class="text-[#4c669a] text-xs sm:text-sm font-medium">Qualité Certifiée</p>
+        </div>
+
+        <div class="bg-white p-5 sm:p-6 rounded-xl border border-gray-100 text-center shadow-sm">
+          <p class="text-primary text-2xl sm:text-3xl font-black">24/7</p>
+          <p class="text-[#4c669a] text-xs sm:text-sm font-medium">Support Continu</p>
+        </div>
+
+        <div class="bg-white p-5 sm:p-6 rounded-xl border border-gray-100 text-center shadow-sm">
+          <p class="text-primary text-2xl sm:text-3xl font-black">AIRP</p>
+          <p class="text-[#4c669a] text-xs sm:text-sm font-medium">Agréments DPM</p>
         </div>
 
       </div>
     </section>
 
-    <!-- ============================================================
-         SECTION À PROPOS
-         - Image à gauche + texte à droite (colonne unique sur mobile)
-    ============================================================ -->
+    <!-- SECTION À PROPOS -->
     <section class="px-4 md:px-40 py-16 bg-white" id="about">
       <div class="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-12">
 
-        <!-- Image illustrative -->
         <div class="w-full md:w-1/2">
           <div class="relative">
             <div class="aspect-square rounded-2xl bg-primary/10 overflow-hidden border border-gray-100 shadow-xl">
               <img
-                alt="About Kevoreh Pharma - pharmacist in modern environment"
+                alt="À propos de Kevoreh Pharma - Pharmacien dans un environnement moderne"
                 class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD__sDarVz3LJPeu2c0crc5lzvtXhzCe_iSOQE6iqwliMXzHYAbY69LORIH58iD02kk_CxjzXBMKau3a8J9xlmgQGFU_HPpf_0VtbnqpBeKe2v1iolSSEb4YJu8U25Vru1yfMFRNi1DSRtY3MMDTdp6oAhVtyCQtgmBRYSR3P3Tueyg8384zKT2aM7dBAIujR6Wi6tAGhFGBU4hWOEmMn8VZ9SdvoBXYMkkap4iHkoXCulWcDMplG_5wnT9olPDrClnRR0M10wCyM"
               />
             </div>
-            <!-- Badge décoratif (visible uniquement sur grand écran) -->
             <div class="absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-2xl hidden lg:block shadow-2xl">
               <span class="material-symbols-outlined text-4xl mb-2">verified_user</span>
-              <p class="font-bold text-xl">Trusted Excellence</p>
+              <p class="font-bold text-xl">Confiance & Excellence</p>
             </div>
           </div>
         </div>
 
-        <!-- Texte descriptif -->
         <div class="w-full md:w-1/2 flex flex-col gap-6">
-          <h2 class="text-primary font-bold tracking-widest uppercase text-sm">Our Identity</h2>
+          <h2 class="text-primary font-bold tracking-widest uppercase text-sm">Notre Identité</h2>
           <h3 class="text-[#0d121b] text-3xl sm:text-4xl font-black leading-tight tracking-[-0.015em]">
-            About KEVOREH PHARMA
+            À propos de KEVOREH PHARMA
           </h3>
           <p class="text-[#0d121b] text-base sm:text-lg font-normal leading-relaxed">
-            Based in the heart of Abidjan, Kevoreh Pharma is a cornerstone of
-            health in Ivory Coast. We are committed to providing high-quality
-            healthcare products that meet international standards of safety and efficacy.
+            Basée à Abidjan, Kevoreh Pharma est une agence de premier plan de représentation et de promotion de produits pharmaceutiques en Côte d'Ivoire. Nous faisons le pont entre les laboratoires internationaux et le marché de la santé local.
           </p>
           <p class="text-[#4c669a] text-sm sm:text-base font-normal leading-relaxed">
-            Our mission is to bridge the gap between global medical innovation
-            and local patient care through professional excellence and unwavering integrity.
-            We believe that health is a fundamental right, and our infrastructure is
-            designed to serve this belief.
+            Notre mission est de garantir l'accès à des produits de santé de haute qualité répondant aux normes internationales de sécurité et d'efficacité. Notre expertise s'étend de l'enregistrement des produits à l'importation de matériel médico-chirurgical.
           </p>
           <div class="pt-2">
             <button class="flex min-w-[160px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-primary text-white font-bold hover:shadow-lg transition-shadow">
-              Our Story
+              Notre Histoire
             </button>
           </div>
         </div>
@@ -351,29 +288,23 @@
       </div>
     </section>
 
-    <!-- ============================================================
-         SECTION EXPERTISE
-         - 3 cartes en grille responsive (1 colonne mobile, 3 desktop)
-    ============================================================ -->
+    <!-- SECTION EXPERTISE -->
     <section class="px-4 md:px-40 py-20" id="expertise">
       <div class="max-w-[1280px] mx-auto">
 
-        <!-- En-tête de section -->
         <div class="flex flex-col gap-4 mb-10 md:mb-12">
-          <h2 class="text-primary font-bold tracking-widest uppercase text-sm">What We Do</h2>
+          <h2 class="text-primary font-bold tracking-widest uppercase text-sm">Notre Savoir-faire</h2>
           <h1 class="text-[#0d121b] text-3xl sm:text-[32px] @[480px]:text-5xl font-black leading-tight max-w-[720px]">
-            Our Expertise
+            Notre Expertise
           </h1>
           <p class="text-[#4c669a] text-base sm:text-lg font-normal leading-normal max-w-[720px]">
-            Innovating across the pharmaceutical value chain to ensure
-            accessibility and uncompromising quality.
+            Un accompagnement sur mesure à travers la chaîne de valeur pharmaceutique pour garantir l'accessibilité et une qualité sans compromis.
           </p>
         </div>
 
-        <!-- Grille de cartes : 1 colonne sur mobile, 3 sur desktop -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
 
-          <!-- Carte 1 : Recherche & Développement -->
+          <!-- Carte 1 : Affaires Réglementaires -->
           <div class="group flex flex-col gap-5 pb-6 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all hover:-translate-y-1">
             <div
               class="w-full aspect-video bg-cover rounded-xl overflow-hidden"
@@ -383,15 +314,14 @@
               <div class="size-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-4">
                 <span class="material-symbols-outlined">science</span>
               </div>
-              <p class="text-[#0d121b] text-xl font-bold leading-normal mb-2">Research &amp; Development</p>
+              <p class="text-[#0d121b] text-xl font-bold leading-normal mb-2">Affaires Réglementaires</p>
               <p class="text-[#4c669a] text-base font-normal leading-relaxed">
-                Cutting-edge medical research tailored for regional health needs,
-                focusing on tropical medicine and preventative care.
+                Support complet pour l'enregistrement des produits, le renouvellement des Visas avec l'AIRP/DPM et l'installation de nouveaux laboratoires en Côte d'Ivoire.
               </p>
             </div>
           </div>
 
-          <!-- Carte 2 : Distribution mondiale -->
+          <!-- Carte 2 : Importation & Distribution -->
           <div class="group flex flex-col gap-5 pb-6 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all hover:-translate-y-1">
             <div
               class="w-full aspect-video bg-cover rounded-xl overflow-hidden"
@@ -401,15 +331,14 @@
               <div class="size-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-4">
                 <span class="material-symbols-outlined">local_shipping</span>
               </div>
-              <p class="text-[#0d121b] text-xl font-bold leading-normal mb-2">Global Distribution</p>
+              <p class="text-[#0d121b] text-xl font-bold leading-normal mb-2">Importation & Distribution</p>
               <p class="text-[#4c669a] text-base font-normal leading-relaxed">
-                Efficient logistics network spanning across Ivory Coast and
-                West Africa, ensuring temperature-controlled delivery.
+                Commercialisation en gros et importation de matériel médico-chirurgical et de réactifs de laboratoire de biologie médicale en Afrique de l'Ouest.
               </p>
             </div>
           </div>
 
-          <!-- Carte 3 : Assurance qualité -->
+          <!-- Carte 3 : Appels d'Offres & Assurances -->
           <div class="group flex flex-col gap-5 pb-6 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all hover:-translate-y-1">
             <div
               class="w-full aspect-video bg-cover rounded-xl overflow-hidden"
@@ -419,10 +348,9 @@
               <div class="size-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-4">
                 <span class="material-symbols-outlined">verified</span>
               </div>
-              <p class="text-[#0d121b] text-xl font-bold leading-normal mb-2">Quality Assurance</p>
+              <p class="text-[#0d121b] text-xl font-bold leading-normal mb-2">Appels d'Offres & Assurances</p>
               <p class="text-[#4c669a] text-base font-normal leading-relaxed">
-                Rigorous testing standards and international certifications to
-                guarantee the highest patient safety.
+                Gestion experte des pré-qualifications, des appels d'offres et de l'enregistrement de produits pour la MUGEFCI et autres assurances privées.
               </p>
             </div>
           </div>
@@ -431,63 +359,51 @@
       </div>
     </section>
 
-    <!-- ============================================================
-         SECTION ENGAGEMENT
-         - Texte à gauche + image à droite
-         - Colonnes inversées sur mobile (image d'abord)
-    ============================================================ -->
+    <!-- SECTION ENGAGEMENT -->
     <section class="px-4 md:px-40 py-20 bg-primary/5" id="commitment">
       <div class="max-w-[1280px] mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-          <!-- Bloc texte (affiché en 2e sur mobile, en 1er sur desktop) -->
           <div class="order-2 lg:order-1">
-            <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-4">Our Commitment</h2>
+            <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-4">Notre Engagement</h2>
             <h3 class="text-[#0d121b] text-3xl sm:text-4xl font-black leading-tight mb-6">
-              Pioneering Health for All
+              Pionniers de la Santé pour Tous
             </h3>
 
-            <!-- Liste des engagements avec icônes -->
             <div class="space-y-6">
 
-              <!-- Engagement 1 : Communauté -->
               <div class="flex gap-4">
                 <div class="size-11 sm:size-12 shrink-0 bg-primary rounded-full flex items-center justify-center text-white">
                   <span class="material-symbols-outlined">diversity_3</span>
                 </div>
                 <div>
-                  <h4 class="text-base sm:text-lg font-bold text-[#0d121b]">Community Focus</h4>
+                  <h4 class="text-base sm:text-lg font-bold text-[#0d121b]">Focus Communautaire</h4>
                   <p class="text-[#4c669a] text-sm sm:text-base">
-                    Supporting local communities through medical education and
-                    affordable healthcare initiatives.
+                    Soutenir les communautés locales par l'éducation médicale et des initiatives de soins de santé abordables.
                   </p>
                 </div>
               </div>
 
-              <!-- Engagement 2 : Durabilité -->
               <div class="flex gap-4">
                 <div class="size-11 sm:size-12 shrink-0 bg-primary rounded-full flex items-center justify-center text-white">
                   <span class="material-symbols-outlined">eco</span>
                 </div>
                 <div>
-                  <h4 class="text-base sm:text-lg font-bold text-[#0d121b]">Sustainability</h4>
+                  <h4 class="text-base sm:text-lg font-bold text-[#0d121b]">Durabilité</h4>
                   <p class="text-[#4c669a] text-sm sm:text-base">
-                    Implementing eco-friendly practices in our distribution
-                    and laboratory processes.
+                    Mettre en œuvre des pratiques écologiques dans nos processus de distribution et de gestion de laboratoire.
                   </p>
                 </div>
               </div>
 
-              <!-- Engagement 3 : Partenariat éthique -->
               <div class="flex gap-4">
                 <div class="size-11 sm:size-12 shrink-0 bg-primary rounded-full flex items-center justify-center text-white">
                   <span class="material-symbols-outlined">handshake</span>
                 </div>
                 <div>
-                  <h4 class="text-base sm:text-lg font-bold text-[#0d121b]">Ethical Partnership</h4>
+                  <h4 class="text-base sm:text-lg font-bold text-[#0d121b]">Partenariat Éthique</h4>
                   <p class="text-[#4c669a] text-sm sm:text-base">
-                    Building long-term relationships with healthcare providers
-                    based on transparency.
+                    Construire des relations à long terme avec les prestataires de soins basées sur la transparence et l'intégrité.
                   </p>
                 </div>
               </div>
@@ -495,15 +411,13 @@
             </div>
           </div>
 
-          <!-- Image illustrative (affichée en 1er sur mobile) -->
           <div class="order-1 lg:order-2">
             <div class="rounded-2xl overflow-hidden shadow-2xl relative">
               <img
-                alt="Commitment - Medical technology background"
+                alt="Engagement - Technologie médicale"
                 class="w-full h-auto object-cover"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYPZKgJ1WpELmJ4GGc70IeakMObvB2HX7ptywUmHwRxvuSQj2XoKG56W5fPU-TPofn8p_a9SojkrqmdTGQUejNIAvFbiLAqayWlEDt9UW4U_w_7eqKWo3q20eecd0tM8BeOsT0xJQnLMSCLBddBkHlm5bcJ75FYfUpDa-fd1TttaZvKITNp9cjg4EJHGaCXfhvOVpd0bi6-T7k2SfYDTkYptsAn7JwxdQAEkuzMa88bWSuQE9wOamvEkgQOTtS548kHS8T2K6OAs8"
               />
-              <!-- Dégradé décoratif sur l'image -->
               <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
             </div>
           </div>
@@ -512,18 +426,13 @@
       </div>
     </section>
 
-    <!-- ============================================================
-         FOOTER
-         - 4 colonnes sur desktop, 1 colonne sur mobile
-    ============================================================ -->
+    <!-- FOOTER -->
     <footer class="bg-[#0d121b] text-white px-4 md:px-40 py-16">
       <div class="max-w-[1280px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12">
 
-        <!-- Colonne 1 : Logo + description + réseaux sociaux -->
         <div class="flex flex-col gap-6">
           <div class="flex items-center gap-4 text-primary">
             <div class="size-8">
-              <!-- Icône SVG personnalisée du logo -->
               <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z"
@@ -534,92 +443,74 @@
             <h2 class="text-white text-lg font-bold tracking-tight">KEVOREH PHARMA</h2>
           </div>
           <p class="text-gray-400 text-sm leading-relaxed">
-            Excellence and innovation in pharmaceutical care.
-            Based in Abidjan, serving West Africa.
+            Excellence et innovation dans la promotion pharmaceutique. Basés à Abidjan, au service de l'Afrique de l'Ouest.
           </p>
-          <!-- Icônes réseaux sociaux -->
           <div class="flex gap-4">
             <a class="size-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" href="#">
               <span class="material-symbols-outlined text-sm">public</span>
             </a>
-            <a class="size-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+            <a class="size-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" href="mailto:infos@kevoreh-pharma.com">
               <span class="material-symbols-outlined text-sm">mail</span>
             </a>
           </div>
         </div>
 
-        <!-- Colonne 2 : Navigation rapide -->
         <div>
           <h5 class="text-lg font-bold mb-6">Navigation</h5>
           <ul class="flex flex-col gap-4 text-gray-400 text-sm">
-            <li><a class="hover:text-primary transition-colors" href="#">Home</a></li>
-            <li><a class="hover:text-primary transition-colors" href="#about">About Us</a></li>
+            <li><a class="hover:text-primary transition-colors" href="index.html">Accueil</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#about">À propos</a></li>
             <li><a class="hover:text-primary transition-colors" href="#expertise">Expertise</a></li>
-            <li><a class="hover:text-primary transition-colors" href="#commitment">Commitment</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#commitment">Engagement</a></li>
           </ul>
         </div>
 
-        <!-- Colonne 3 : Informations de contact -->
         <div>
-          <h5 class="text-lg font-bold mb-6">Contact Us</h5>
+          <h5 class="text-lg font-bold mb-6">Contactez-nous</h5>
           <ul class="flex flex-col gap-4 text-gray-400 text-sm">
-            <!-- Adresse -->
             <li class="flex items-start gap-3">
               <span class="material-symbols-outlined text-primary text-lg">location_on</span>
-              <span>Plateau, Abidjan<br />Ivory Coast</span>
+              <span>Route d'Abbata, Carrefour Super Marché AB CENTER<br />Abidjan, Côte d'Ivoire</span>
             </li>
-            <!-- Téléphone -->
             <li class="flex items-center gap-3">
               <span class="material-symbols-outlined text-primary text-lg">phone</span>
-              <span>+225 27 00 00 00 00</span>
+              <span>+225 07-0908-4190 / 07-0858-4243</span>
             </li>
-            <!-- Email -->
             <li class="flex items-center gap-3">
               <span class="material-symbols-outlined text-primary text-lg">mail</span>
-              <span>info@kevoreh-pharma.com</span>
+              <span>infos@kevoreh-pharma.com</span>
             </li>
           </ul>
         </div>
 
-        <!-- Colonne 4 : Formulaire newsletter -->
         <div>
           <h5 class="text-lg font-bold mb-6">Newsletter</h5>
           <p class="text-gray-400 text-sm mb-4">
-            Stay updated with our latest medical news and research.
+            Restez informé de nos dernières actualités médicales et produits.
           </p>
-          <!-- Formulaire d'abonnement -->
           <form class="flex flex-col gap-3" onsubmit="return false;">
             <input
               class="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm focus:ring-1 focus:ring-primary outline-none text-white placeholder-gray-500"
-              placeholder="Email address"
+              placeholder="Votre adresse e-mail"
               type="email"
             />
             <button
               class="bg-primary text-white font-bold py-2 rounded-lg text-sm hover:opacity-90 transition-opacity"
               type="submit"
             >
-              Subscribe
+              S'abonner
             </button>
           </form>
         </div>
 
       </div>
 
-      <!-- Barre de copyright -->
       <div class="max-w-[1280px] mx-auto mt-16 pt-8 border-t border-white/5 text-center text-gray-500 text-xs">
-        © 2026 KEVOREH PHARMA. All rights reserved.
+        © 2024 KEVOREH PHARMA. Tous droits réservés.
       </div>
     </footer>
 
-    <!-- ============================================================
-         JAVASCRIPT
-         - Gestion du menu hamburger (mobile)
-    ============================================================ -->
     <script>
-      /**
-       * Ouvre ou ferme le menu mobile en ajoutant/retirant la classe "open".
-       * Met également à jour l'attribut aria-expanded pour l'accessibilité.
-       */
       function toggleMobileMenu() {
         const menu = document.getElementById('mobile-menu');
         const btn = document.getElementById('hamburger-btn');
